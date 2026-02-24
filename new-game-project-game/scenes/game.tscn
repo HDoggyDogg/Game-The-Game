@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cr1v48q2svdgs"]
+
+[ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dtj1fqab6hhb4" path="res://scenes/enemy.tscn" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="3_lnu2h"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+texture = ExtResource("3_lnu2h")
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iywne"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+
+[node name="Node2D" type="Node2D" unique_id=1864473837]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199702503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1880508401]
+position = Vector2(0, -5)
+shape = SubResource("WorldBoundaryShape2D_uwrxv")
+
+[node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("1_uwrxv")]
+position = Vector2(-178, -7)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2134652602]
+position = Vector2(171, -317)
+position_smoothing_enabled = true
+
+[node name="Node2D" parent="." unique_id=712999090 instance=ExtResource("2_yqjtg")]
+position = Vector2(141, -6)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1324708091]
+tile_set = SubResource("TileSet_iywne")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1, 131072, 0, -2, 131072, 0, -3, 131072, 0, -4, 131072, 0, -5, 131072, 0, -6, 131072, 0, -7, 131072, 0, -8, 131072, 0, -9, 131072, 0, -10, 131072, 0, -11, 131072, 0, -12, 131072, 0, -13, 131072, 0, -14, 131072, 0, -65536, 131072, 0, -65535, 131072, 0, -65534, 131072, 0, -65533, 131072, 0, -65532, 131072, 0, -65531, 131072, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, -65526, 131072, 0, -65525, 131072, 0, -65524, 131072, 0, -65523, 131072, 0, -65522, 131072, 0, -65521, 131072, 0, -65520, 131072, 0, -65519, 131072, 0, -65518, 131072, 0, -65517, 131072, 0, -65516, 131072, 0, -65515, 131072, 0, -65514, 131072, 0, -65512, 131072, 0, -65513, 131072, 0, -65511, 131072, 0, -65510, 131072, 0, -65509, 131072, 0, -65508, 131072, 0, -65507, 131072, 0)
