@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b5x6nd1o8wi5e"]
 
-[ext_resource type="Script" uid="uid://5re01s6wbuvp" path="res://area_2d.gd" id="1_2a7c2"]
+[ext_resource type="Script" uid="uid://5re01s6wbuvp" path="res://scripts/death.gd" id="1_2a7c2"]
 
-[node name="Area2D" type="Area2D" unique_id=1767619211]
+[node name="KillZone" type="Area2D" unique_id=1767619211]
 collision_mask = 2
 script = ExtResource("1_2a7c2")
 

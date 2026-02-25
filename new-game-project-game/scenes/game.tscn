@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dtj1fqab6hhb4" path="res://scenes/enemy.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://7u227r66qwg8" path="res://scenes/coin.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="5_iywne"]
+[ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="6_p57ef"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwrxv"]
 
@@ -22,22 +25,64 @@ sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 [node name="Node2D" type="Node2D" unique_id=1864473837]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199702503]
+position = Vector2(573, 578)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1880508401]
 position = Vector2(0, -5)
 shape = SubResource("WorldBoundaryShape2D_uwrxv")
 
 [node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("1_uwrxv")]
-position = Vector2(-178, -7)
+position = Vector2(395, 571)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=2134652602]
-position = Vector2(171, -317)
+position = Vector2(180, -244)
 position_smoothing_enabled = true
 
-[node name="Node2D" parent="." unique_id=712999090 instance=ExtResource("2_yqjtg")]
-position = Vector2(141, -6)
+[node name="Node2D" parent="." unique_id=608503516 instance=ExtResource("2_yqjtg")]
+position = Vector2(714, 572)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1324708091]
+position = Vector2(573, 578)
 tile_set = SubResource("TileSet_iywne")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 131072, 0, -2, 131072, 0, -3, 131072, 0, -4, 131072, 0, -5, 131072, 0, -6, 131072, 0, -7, 131072, 0, -8, 131072, 0, -9, 131072, 0, -10, 131072, 0, -11, 131072, 0, -12, 131072, 0, -13, 131072, 0, -14, 131072, 0, -65536, 131072, 0, -65535, 131072, 0, -65534, 131072, 0, -65533, 131072, 0, -65532, 131072, 0, -65531, 131072, 0, -65530, 131072, 0, -65529, 131072, 0, -65528, 131072, 0, -65527, 131072, 0, -65526, 131072, 0, -65525, 131072, 0, -65524, 131072, 0, -65523, 131072, 0, -65522, 131072, 0, -65521, 131072, 0, -65520, 131072, 0, -65519, 131072, 0, -65518, 131072, 0, -65517, 131072, 0, -65516, 131072, 0, -65515, 131072, 0, -65514, 131072, 0, -65512, 131072, 0, -65513, 131072, 0, -65511, 131072, 0, -65510, 131072, 0, -65509, 131072, 0, -65508, 131072, 0, -65507, 131072, 0)
+
+[node name="Node2D2" parent="." unique_id=712999090 instance=ExtResource("2_yqjtg")]
+position = Vector2(777, 572)
+
+[node name="Node2D3" parent="." unique_id=308562093 instance=ExtResource("2_yqjtg")]
+position = Vector2(851, 574)
+
+[node name="Node2D4" parent="." unique_id=492329892 instance=ExtResource("2_yqjtg")]
+position = Vector2(917, 572)
+
+[node name="Node2D5" parent="." unique_id=1045455658 instance=ExtResource("4_lbhrr")]
+position = Vector2(514, 519)
+
+[node name="Node2D6" parent="." unique_id=614251790 instance=ExtResource("4_lbhrr")]
+position = Vector2(603, 520)
+
+[node name="Node2D7" parent="." unique_id=1909413440 instance=ExtResource("4_lbhrr")]
+position = Vector2(707, 203)
+
+[node name="Node2D8" parent="." unique_id=108569463 instance=ExtResource("4_lbhrr")]
+position = Vector2(854, 201)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2118504053]
+
+[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=653821477]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 268.985
+offset_bottom = 66.285
+scale = Vector2(1.38, 1.38)
+text = "Coins"
+script = ExtResource("5_iywne")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=130720658]
+offset_left = 274.0
+offset_top = 107.0
+offset_right = 314.0
+offset_bottom = 130.0
+scale = Vector2(5.15, 5.15)
+script = ExtResource("6_p57ef")

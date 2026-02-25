@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://dtj1fqab6hhb4"]
 
-[ext_resource type="Script" uid="uid://bwrrqumhf3dce" path="res://scenes/enemy.gd" id="1_5uy6h"]
+[ext_resource type="Script" uid="uid://bwrrqumhf3dce" path="res://scripts/enemy.gd" id="1_5uy6h"]
 [ext_resource type="Texture2D" uid="uid://cop7kku7j3j2n" path="res://assets/Enemy.png" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://b5x6nd1o8wi5e" path="res://scenes/kill-zone.tscn" id="2_4ra3w"]
-
-[sub_resource type="GDScript" id="GDScript_4ra3w"]
+[ext_resource type="Script" uid="uid://bhq7nmwadntqp" path="res://scripts/head.gd" id="3_5uy6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
-size = Vector2(96.41657, 42.76632)
+size = Vector2(96.41657, 50.78505)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uy6h"]
-size = Vector2(36, 87)
+size = Vector2(36, 84)
 
 [node name="Node2D" type="Node2D" unique_id=712999090]
 script = ExtResource("1_5uy6h")
@@ -20,20 +19,20 @@ position = Vector2(1.9999924, -55.000004)
 scale = Vector2(0.35263652, 0.3741259)
 texture = ExtResource("1_md0e3")
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=1527083533]
+[node name="Area2D2" type="Area2D" parent="." unique_id=1527083533 groups=["head"]]
 position = Vector2(0.9999994, -96)
 scale = Vector2(0.3526365, 0.3741259)
 collision_mask = 2
-script = SubResource("GDScript_4ra3w")
+script = ExtResource("3_5uy6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=929943275]
+position = Vector2(0, 4.0093384)
 shape = SubResource("RectangleShape2D_c4w8v")
 
-[node name="Area2D" parent="." unique_id=1767619211 instance=ExtResource("2_4ra3w")]
+[node name="KillZone" parent="." unique_id=1767619211 instance=ExtResource("2_4ra3w")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=919003956]
-position = Vector2(1, -44.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=919003956]
+position = Vector2(1, -43)
 shape = SubResource("RectangleShape2D_5uy6h")
 
-[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
