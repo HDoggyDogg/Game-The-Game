@@ -17,7 +17,7 @@ scale = Vector2(0.44096363, 0.44096366)
 texture = ExtResource("1_d5gmh")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1927906723]
-collision_mask = 2
+collision_mask = 4
 script = SubResource("GDScript_i64fm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=494860261]
