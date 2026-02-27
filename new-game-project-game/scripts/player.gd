@@ -3,14 +3,16 @@ extends CharacterBody2D
 
 
 const SPEED = 500.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -650.0
 var jump_count := 0
 
+func _ready():
+	powered.hide()
 func bounce():
 	if Input.is_action_pressed("ui_accept"):
-		velocity.y = -500
+		velocity.y = JUMP_VELOCITY
 	else:
-		velocity.y = -300
+		velocity.y = JUMP_VELOCITY/2 
 	move_and_slide()
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

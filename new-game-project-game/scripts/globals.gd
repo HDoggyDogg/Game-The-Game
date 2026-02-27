@@ -7,3 +7,4 @@ var max_jumps = 1
 func reset():
 	alive = true
 	coins = 0
+	max_jumps = 1
