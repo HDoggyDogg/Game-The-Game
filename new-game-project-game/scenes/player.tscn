@@ -18,13 +18,13 @@ collision_layer = 4
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1985102629]
-position = Vector2(2.4311821, -94.75001)
+position = Vector2(2, -93)
 scale = Vector2(0.65679437, 0.65679437)
 texture = ExtResource("1_3vyb7")
 
 [node name="Powered" type="Sprite2D" parent="." unique_id=184642993]
-position = Vector2(2.6121283, -97.06191)
-scale = Vector2(0.6662411, 0.6662412)
+position = Vector2(12.715212, -112.06191)
+scale = Vector2(0.76933384, 0.7693339)
 texture = ExtResource("3_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201951310]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://viiyxts0tukq" path="res://scripts/coin.gd" id="1_11l1o"]
 [ext_resource type="Texture2D" uid="uid://25qfganepijj" path="res://assets/coin.png" id="1_d5gmh"]
 [ext_resource type="AudioStream" uid="uid://wqh3cqg4rvqf" path="res://assets/Coin.wav" id="3_11l1o"]
-[ext_resource type="Script" uid="uid://bt6amd8kf5icv" path="res://scenes/area_2d.gd" id="3_d14el"]
+[ext_resource type="Script" uid="uid://bt6amd8kf5icv" path="res://area_2d.gd" id="3_d14el"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rwqht"]
 radius = 35.057095
