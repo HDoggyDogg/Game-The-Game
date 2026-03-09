@@ -23,8 +23,8 @@ scale = Vector2(0.65679437, 0.65679437)
 texture = ExtResource("1_3vyb7")
 
 [node name="Powered" type="Sprite2D" parent="." unique_id=184642993]
-position = Vector2(12.715212, -112.06191)
-scale = Vector2(0.76933384, 0.7693339)
+position = Vector2(2.6602478, -97.13337)
+scale = Vector2(0.66673213, 0.66673225)
 texture = ExtResource("3_dqkch")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201951310]

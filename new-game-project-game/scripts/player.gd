@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var jump: AudioStreamPlayer = $Jump
 @onready var camera_2d: Camera2D = $"../Camera2D"
 @onready var normal_sprite: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var was_on_floor = false
 var jumped_this_frame = false
@@ -14,7 +15,8 @@ var sprite_crouch_y = 40
 
 var camera_crouch = -100
 
-var speed = 500.0
+const SPEED = 700.0
+const CROUCH_SPEED = 200
 const JUMP_VELOCITY = -650.0
 var jump_count := 0
 	
@@ -27,7 +29,26 @@ func bounce():
 		velocity.y = JUMP_VELOCITY
 	else:
 		velocity.y = JUMP_VELOCITY/2 
-	move_and_slide()
+		move_and_slide()
+func _process(delta: float) -> void:
+	if Input.is_action_pressed('crouch') and Globals.alive == true:
+		normal_sprite.scale = crouch
+		powered.scale = crouch
+		camera_2d.position.y = camera_2d.position.y - camera_crouch
+		normal_sprite.position.y = sprite_normal_y + sprite_crouch_y
+		powered.position.y = sprite_normal_y + sprite_crouch_y
+	else:
+		normal_sprite.scale = normal
+		powered.scale = normal
+		normal_sprite.position.y = sprite_normal_y
+		powered.position.y = sprite_normal_y
+	if Globals.max_jumps > 1:
+		powered.show()
+		normal_sprite.hide()
+	else:
+		powered.hide()
+		normal_sprite.show()
+
 func _physics_process(delta: float) -> void:
 	jumped_this_frame = false
 	# Add the gravity.
@@ -48,27 +69,15 @@ func _physics_process(delta: float) -> void:
 	if was_on_floor and !is_on_floor() and !jumped_this_frame and velocity.y > 0:
 		jump_count += 1
 	
-	if direction:
-		velocity.x = direction * speed
+	if direction and not Input.is_action_pressed("crouch"):
+		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-	if Globals.max_jumps > 1:
-		powered.show()
-		normal_sprite.hide()
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if direction and Input.is_action_pressed("crouch"):
+		velocity.x = direction * CROUCH_SPEED
 	else:
-		powered.hide()
-		normal_sprite.show()
-	if Input.is_action_pressed('crouch'):
-		normal_sprite.scale = crouch
-		powered.scale = crouch
-		camera_2d.position.y = camera_2d.position.y - camera_crouch
-		normal_sprite.position.y = sprite_normal_y + sprite_crouch_y
-		powered.position.y = sprite_normal_y + sprite_crouch_y
-	else:
-		normal_sprite.scale = normal
-		powered.scale = normal
-		normal_sprite.position.y = sprite_normal_y
-		powered.position.y = sprite_normal_y
+		velocity.x = move_toward(velocity.x, 0, CROUCH_SPEED)
+
 	was_on_floor = is_on_floor()
 	
 	move_and_slide()
