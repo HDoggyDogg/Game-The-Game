@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://yohi75o0toyv"]
+
+[ext_resource type="Texture2D" uid="uid://b063sqdadxonj" path="res://assets/FlashLight.png" id="1_0ywi5"]
+[ext_resource type="Script" uid="uid://cqotiyl4y51ca" path="res://scripts/flashlight.gd" id="2_bh8a8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bis5n"]
+size = Vector2(100, 104)
+
+[node name="Flashlight" type="Node2D" unique_id=2098044318]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733421193]
+position = Vector2(2, -94)
+scale = Vector2(0.5302908, 0.5302908)
+texture = ExtResource("1_0ywi5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=263720282]
+collision_mask = 4
+script = ExtResource("2_bh8a8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1932403037]
+position = Vector2(-2, -55)
+shape = SubResource("RectangleShape2D_bis5n")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

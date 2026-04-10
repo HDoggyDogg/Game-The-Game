@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://1cy2rfa58jdf"]
+
+[ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="1_ms1t0"]
+[ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="1_v4gm1"]
+[ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="2_g54xt"]
+[ext_resource type="Script" uid="uid://ctgjcn857cwqq" path="res://scripts/gravity_player.gd" id="2_jfeem"]
+[ext_resource type="Texture2D" uid="uid://cgonfylmgyx7g" path="res://assets/terrain_grass_block_top.png" id="3_7pj42"]
+[ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="4_thmvh"]
+[ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="5_54swg"]
+[ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="6_teump"]
+[ext_resource type="PackedScene" uid="uid://c3w4cmnredv2g" path="res://scenes/gravity_switch.tscn" id="9_g54xt"]
+[ext_resource type="PackedScene" uid="uid://dtj1fqab6hhb4" path="res://scenes/enemy.tscn" id="10_7pj42"]
+[ext_resource type="PackedScene" uid="uid://7u227r66qwg8" path="res://scenes/coin.tscn" id="11_thmvh"]
+[ext_resource type="PackedScene" uid="uid://c5h6dtfj8ugbu" path="res://scenes/spike.tscn" id="12_54swg"]
+[ext_resource type="Texture2D" uid="uid://carlcv1hc3lo7" path="res://assets/yao ming.png" id="13_teump"]
+[ext_resource type="Script" uid="uid://cdsb1hb6ak6e2" path="res://scenes/yao_ming.gd" id="14_oe7sd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oe7sd"]
+texture = ExtResource("2_g54xt")
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.6978817, 8, 2.5180225, 8, 2.5180225, -0.35971832, 2.1583061, -8, 2.5180225)
+5:0/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyn2d"]
+texture = ExtResource("3_7pj42")
+texture_region_size = Vector2i(16, 4)
+0:1/size_in_atlas = Vector2i(4, 15)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.96796, -30.038136, 32.051865, -30.12204, 31.661083, 28.836855, -31.95837, 28.093636)
+
+[sub_resource type="TileSet" id="TileSet_7h48i"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_oe7sd")
+sources/1 = SubResource("TileSetAtlasSource_jyn2d")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_35rec"]
+distance = 308.0
+
+[sub_resource type="SystemFont" id="SystemFont_14jow"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o0ljq"]
+font = SubResource("SystemFont_14jow")
+font_size = 29
+
+[sub_resource type="SystemFont" id="SystemFont_mvsps"]
+msdf_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_su468"]
+font = SubResource("SystemFont_mvsps")
+font_size = 37
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe7sd"]
+size = Vector2(649.7947, 710.3932)
+
+[node name="Node2D" type="Node2D" unique_id=1798058812]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1324172941]
+visible = false
+offset_left = -23464.0
+offset_top = -11521.0
+offset_right = 9770.0
+offset_bottom = 3261.0
+color = Color(0.5359306, 0.37924793, 0.63322663, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1680870870]
+position = Vector2(-14243, -1234)
+offset = Vector2(200, -200)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("1_v4gm1")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=639680754]
+position = Vector2(579, -645)
+tile_set = SubResource("TileSet_7h48i")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2229153, 1, 1, -2229157, 1, 1, -2229161, 1, 1, -2229165, 1, 1, -2229149, 1, 1, -2229145, 1, 1, -2229141, 1, 1, -2229137, 1, 1, -2229133, 1, 1, -2229129, 1, 1, -2229125, 1, 1, -2229121, 1, 1, -4522888, 1, 1, -4522884, 1, 1, -4522880, 1, 1, -4522876, 1, 1, -4522872, 1, 1, -4522868, 1, 1, -4522864, 1, 1, -4522860, 1, 1, -4522856, 1, 1, -4522852, 1, 1, -4522848, 1, 1, -4522844, 1, 1, -4522840, 1, 1, -4522774, 1, 1, -4522778, 1, 1, -4522786, 1, 1, -4522782, 1, 1, -4522770, 1, 1, -4522766, 1, 1, -4522762, 1, 1, -4522758, 1, 1, -4522754, 1, 1, -4522750, 1, 1, -11600812, 1, 1, -11600808, 1, 1, -11600804, 1, 1, -11600800, 1, 1, -11600796, 1, 1, -11600792, 1, 1, -4981446, 1, 1, -4981442, 1, 1, -4981438, 1, 1, -4981434, 1, 1, -4981430, 1, 1, -4981426, 1, 1, -2818720, 1, 1, -2818716, 1, 1, -2818712, 1, 1, -2818708, 1, 1, -2818704, 1, 1, -2818700, 1, 1, -2818696, 1, 1, -2818692, 1, 1, -2359891, 1, 1, -2359887, 1, 1, -2359883, 1, 1, -2359879, 1, 1, -2359875, 1, 1, -2359871, 1, 1, -2359867, 1, 1, -2359863, 1, 1, -1704460, 1, 1, -1704456, 1, 1, -1704452, 1, 1, -1704448, 1, 1, -1704444, 1, 1, -1704440, 1, 1, -1704436, 1, 1, -1704432, 1, 1, -1704428, 1, 1, -1704424, 1, 1, -1704420, 1, 1, -1704416, 1, 1, -2425276, 1, 1, -2425272, 1, 1, -2425268, 1, 1, -2425264, 1, 1, -2425260, 1, 1, -2425256, 1, 1, -2425252, 1, 1, -2425248, 1, 1, -2425244, 1, 1, -2425240, 1, 1, -2425236, 1, 1, -2425232, 1, 1, -2818440, 1, 1, -2818436, 1, 1, -2818432, 1, 1, -2818428, 1, 1, -2818424, 1, 1, -2818420, 1, 1, -2818416, 1, 1, -2818412, 1, 1, -2818408, 1, 1, -2818404, 1, 1, -2818400, 1, 1, -2818396, 1, 1, -4718994, 1, 1, -4718990, 1, 1, -4718986, 1, 1, -4718982, 1, 1, -4718978, 1, 1, -4718974, 1, 1, -4718970, 1, 1, -4718966, 1, 1, -4718962, 1, 1, -4718958, 1, 1, -4718954, 1, 1, -4718950, 1, 1, -5636443, 1, 1, -5636439, 1, 1, -5636435, 1, 1, -5636431, 1, 1, -5636427, 1, 1, -5636423, 1, 1, -5636419, 1, 1, -5636415, 1, 1, -5636411, 1, 1, -1048937, 1, 1, -1048933, 1, 1, -1048929, 1, 1, -1048925, 1, 1, -1048921, 1, 1, -1048917, 1, 1, -1048913, 1, 1, -1048909, 1, 1, -1048905, 1, 1, -1048901, 1, 1, -1048897, 1, 1, -1048893, 1, 1, -1048889, 1, 1, -1048885, 1, 1, -5636407, 1, 1, -5636403, 1, 1, -5636399, 1, 1, -5636395, 1, 1, -5636391, 1, 1, -5636387, 1, 1, -5636383, 1, 1, -9109837, 1, 1)
+
+[node name="death_pit2" parent="." unique_id=2060706043 instance=ExtResource("4_thmvh")]
+position = Vector2(-13161, -6014)
+rotation = -3.1415927
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit2" unique_id=461768140]
+position = Vector2(-13713, 362)
+shape = SubResource("WorldBoundaryShape2D_35rec")
+one_way_collision = true
+
+[node name="death_pit" parent="." unique_id=1898803188 instance=ExtResource("4_thmvh")]
+position = Vector2(-14646, 211)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit" unique_id=1830422085]
+position = Vector2(-13713, 362)
+shape = SubResource("WorldBoundaryShape2D_35rec")
+one_way_collision = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2040689895]
+
+[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=1359521281]
+offset_left = 24.0
+offset_top = 23.0
+offset_right = 101.0
+offset_bottom = 63.0
+text = "Coins"
+label_settings = SubResource("LabelSettings_o0ljq")
+script = ExtResource("5_54swg")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1828939701]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 422.0
+offset_top = 90.0
+offset_right = 511.0
+offset_bottom = 141.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+text = "dead"
+label_settings = SubResource("LabelSettings_su468")
+script = ExtResource("6_teump")
+metadata/_edit_use_anchors_ = true
+
+[node name="YaoMing" type="Sprite2D" parent="." unique_id=552425439]
+position = Vector2(-14288, -3644.0002)
+scale = Vector2(0.59403664, 0.5940367)
+texture = ExtResource("13_teump")
+
+[node name="Area2D" type="Area2D" parent="YaoMing" unique_id=64823086]
+collision_mask = 4
+script = ExtResource("14_oe7sd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YaoMing/Area2D" unique_id=1026376636]
+position = Vector2(-10.099609, 136.35547)
+scale = Vector2(1.0000002, 1)
+shape = SubResource("RectangleShape2D_oe7sd")
+
+[node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("1_ms1t0")]
+position = Vector2(-14249, -1234)
+script = ExtResource("2_jfeem")
+
+[node name="Node2D" parent="." unique_id=1862880805 instance=ExtResource("9_g54xt")]
+position = Vector2(-12691, -1316)
+
+[node name="Enemy" parent="." unique_id=712999090 instance=ExtResource("10_7pj42")]
+position = Vector2(-11225, -2063)
+rotation = 3.1415927
+
+[node name="Enemy2" parent="." unique_id=722139067 instance=ExtResource("10_7pj42")]
+position = Vector2(-9368, -1069)
+
+[node name="Coin" parent="." unique_id=1045455658 instance=ExtResource("11_thmvh")]
+position = Vector2(-5609, -1277)
+rotation = 3.1415927
+
+[node name="Coin2" parent="." unique_id=1039313611 instance=ExtResource("11_thmvh")]
+position = Vector2(-5457, -1273)
+rotation = 3.1415927
+
+[node name="Coin3" parent="." unique_id=1146762073 instance=ExtResource("11_thmvh")]
+position = Vector2(-5324, -1274)
+rotation = 3.1415927
+
+[node name="Coin4" parent="." unique_id=211057649 instance=ExtResource("11_thmvh")]
+position = Vector2(-5175, -1269)
+rotation = 3.1415927
+
+[node name="Spike" parent="." unique_id=1197267952 instance=ExtResource("12_54swg")]
+position = Vector2(-4944, -1190)
+
+[node name="Spike2" parent="." unique_id=970827382 instance=ExtResource("12_54swg")]
+position = Vector2(-4800, -1192)
+
+[connection signal="body_entered" from="YaoMing/Area2D" to="YaoMing/Area2D" method="_on_body_entered"]

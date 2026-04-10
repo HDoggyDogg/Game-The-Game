@@ -1,0 +1,516 @@
+[gd_scene format=3 uid="uid://311r7fa2j1tm"]
+
+[ext_resource type="Script" uid="uid://cblamhc1amli8" path="res://scripts/level4.gd" id="1_j8vkp"]
+[ext_resource type="Script" uid="uid://b4gmdkadcjo18" path="res://scripts/water_camera.gd" id="2_oykdx"]
+[ext_resource type="Texture2D" uid="uid://cdnvruyc231tf" path="res://assets/GolemCard.webp" id="3_cev7d"]
+[ext_resource type="Texture2D" uid="uid://c72p7b1pvkv1i" path="res://assets/Sneakers-otoole.jpeg.jpeg" id="4_xtaj5"]
+[ext_resource type="PackedScene" uid="uid://dkpy3dilvuk1h" path="res://scenes/level_select_portal.tscn" id="5_m8ews"]
+[ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="6_la4bi"]
+[ext_resource type="Script" uid="uid://det1jyjh7lrmy" path="res://scripts/player_water.gd" id="7_o7eol"]
+[ext_resource type="PackedScene" uid="uid://c5h6dtfj8ugbu" path="res://scenes/spike.tscn" id="8_bx2t0"]
+[ext_resource type="PackedScene" uid="uid://7u227r66qwg8" path="res://scenes/coin.tscn" id="9_ih1td"]
+[ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="10_6cil5"]
+[ext_resource type="Texture2D" uid="uid://cgonfylmgyx7g" path="res://assets/terrain_grass_block_top.png" id="11_x02yq"]
+[ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="12_sh1tq"]
+[ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="13_xu66h"]
+[ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="14_ig6gj"]
+[ext_resource type="Script" uid="uid://bt6amd8kf5icv" path="res://scripts/sneaky golem.gd" id="15_nso2f"]
+[ext_resource type="Script" uid="uid://dppw0qq21t0k0" path="res://scripts/Sneakers O' Toole.gd" id="16_sai06"]
+[ext_resource type="Texture2D" uid="uid://82khovwxjdo6" path="res://assets/spike.png" id="17_hasdo"]
+[ext_resource type="PackedScene" uid="uid://c6ilbjg5hqyu5" path="res://scenes/power.tscn" id="18_ybamj"]
+[ext_resource type="Script" uid="uid://c64315douupv5" path="res://scripts/color_rect_2.gd" id="19_4frl0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g31h8"]
+texture = ExtResource("10_6cil5")
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.6978817, 8, 2.5180225, 8, 2.5180225, -0.35971832, 2.1583061, -8, 2.5180225)
+5:0/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy5x3"]
+texture = ExtResource("11_x02yq")
+texture_region_size = Vector2i(16, 4)
+0:1/size_in_atlas = Vector2i(4, 15)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.96796, -30.038136, 32.051865, -30.12204, 31.661083, 28.836855, -31.95837, 28.093636)
+
+[sub_resource type="TileSet" id="TileSet_dmmei"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_g31h8")
+sources/1 = SubResource("TileSetAtlasSource_hy5x3")
+
+[sub_resource type="SystemFont" id="SystemFont_14jow"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_675ay"]
+font = SubResource("SystemFont_14jow")
+font_size = 29
+
+[sub_resource type="SystemFont" id="SystemFont_mvsps"]
+msdf_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_q41qf"]
+font = SubResource("SystemFont_mvsps")
+font_size = 37
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yk4f3"]
+distance = 212.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qsmat"]
+normal = Vector2(0, 1)
+distance = -857.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q41qf"]
+size = Vector2(883.2295, 346.58362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hy5x3"]
+size = Vector2(228, 247)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dmmei"]
+font_size = 35
+
+[node name="Node2D" type="Node2D" unique_id=1999173905]
+script = ExtResource("1_j8vkp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=969401665]
+offset_left = -23672.0
+offset_top = -10168.0
+offset_right = 9562.0
+offset_bottom = 4614.0
+color = Color(0, 0.44080555, 0.978272, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=463202533]
+position = Vector2(-14284, -148)
+offset = Vector2(200, -200)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("2_oykdx")
+
+[node name="GolemCard" type="Sprite2D" parent="." unique_id=104765483]
+position = Vector2(-13126, -606)
+scale = Vector2(0.44722223, 0.44722223)
+texture = ExtResource("3_cev7d")
+
+[node name="SneakersOtoole_jpeg" type="Sprite2D" parent="." unique_id=2140733629]
+position = Vector2(-11772, -496)
+scale = Vector2(1.4068046, 1.4068048)
+texture = ExtResource("4_xtaj5")
+
+[node name="Node2D" parent="." unique_id=394454587 instance=ExtResource("5_m8ews")]
+position = Vector2(-4140, 12)
+
+[node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("6_la4bi")]
+position = Vector2(-14285, -13)
+script = ExtResource("7_o7eol")
+
+[node name="Spike6" parent="." unique_id=1197267952 instance=ExtResource("8_bx2t0")]
+position = Vector2(-14022, -219)
+
+[node name="Spike7" parent="." unique_id=1633165383 instance=ExtResource("8_bx2t0")]
+position = Vector2(-13588, -579)
+
+[node name="Spike8" parent="." unique_id=486128962 instance=ExtResource("8_bx2t0")]
+position = Vector2(-13801, -205)
+
+[node name="Coin4" parent="." unique_id=1045455658 instance=ExtResource("9_ih1td")]
+position = Vector2(-13558, -357)
+
+[node name="Coin5" parent="." unique_id=1573400016 instance=ExtResource("9_ih1td")]
+position = Vector2(-13418, -183)
+
+[node name="Spike9" parent="." unique_id=1512774051 instance=ExtResource("8_bx2t0")]
+position = Vector2(-13370, -384)
+
+[node name="Spike10" parent="." unique_id=1432264385 instance=ExtResource("8_bx2t0")]
+position = Vector2(-13207, 65)
+
+[node name="Spike" parent="." unique_id=1110831709 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12807, 71)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=992444170]
+position = Vector2(574, 579)
+tile_set = SubResource("TileSet_dmmei")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2229184, 1, 1, -2425792, 1, 1, -2622400, 1, 1, -2819008, 1, 1, -3015616, 1, 1, -3212224, 1, 1, -4195264, 1, 1, -3998656, 1, 1, -3802048, 1, 1, -3605440, 1, 1, -3408832, 1, 1, -2229180, 1, 1, -2229176, 1, 1, -2229172, 1, 1, -2229168, 1, 1, -2229164, 1, 1, -2229160, 1, 1, -2229156, 1, 1, -2229152, 1, 1, -2229148, 1, 1, -2229144, 1, 1, -2229140, 1, 1, -2229136, 1, 1, -2229132, 1, 1, -2229128, 1, 1, -2229124, 1, 1, -2229120, 1, 1, -2229116, 1, 1, -2229112, 1, 1, -2229108, 1, 1, -2229104, 1, 1, -2229100, 1, 1, -2229096, 1, 1, -2229092, 1, 1, -2229088, 1, 1, -2229084, 1, 1, -2229080, 1, 1, -2229076, 1, 1, -2229072, 1, 1, -2229068, 1, 1, -2229064, 1, 1, -2229060, 1, 1, -2229056, 1, 1, -2229052, 1, 1, -2229048, 1, 1, -2229044, 1, 1, -2229040, 1, 1, -2229036, 1, 1, -2229032, 1, 1, -2229028, 1, 1, -2229024, 1, 1, -2229020, 1, 1, -2229016, 1, 1, -2229012, 1, 1, -2229008, 1, 1, -2229004, 1, 1, -2229000, 1, 1, -2228996, 1, 1, -2228992, 1, 1, -2228988, 1, 1, -2228984, 1, 1, -2228980, 1, 1, -2228976, 1, 1, -2228972, 1, 1, -2228968, 1, 1, -2228964, 1, 1, -2228960, 1, 1, -2228956, 1, 1, -2228952, 1, 1, -2228948, 1, 1, -2228944, 1, 1, -2228940, 1, 1, -2228936, 1, 1, -2228932, 1, 1, -2228928, 1, 1, -2228924, 1, 1, -2228920, 1, 1, -2228916, 1, 1, -2228912, 1, 1, -2228908, 1, 1, -2228904, 1, 1, -2228900, 1, 1, -2228896, 1, 1, -2228892, 1, 1, -2228888, 1, 1, -2228884, 1, 1, -2228880, 1, 1, -2228876, 1, 1, -2228872, 1, 1, -2228868, 1, 1, -2228864, 1, 1, -2228860, 1, 1, -2228856, 1, 1, -2228852, 1, 1, -2228848, 1, 1, -2228844, 1, 1, -2228840, 1, 1, -2228836, 1, 1, -2228832, 1, 1, -2228828, 1, 1, -2228824, 1, 1, -2228820, 1, 1, -2228816, 1, 1, -2228812, 1, 1, -2228808, 1, 1, -2228804, 1, 1, -2228800, 1, 1, -2228796, 1, 1, -2228792, 1, 1, -2228788, 1, 1, -2228784, 1, 1, -2228780, 1, 1, -2228776, 1, 1, -2228772, 1, 1, -2228768, 1, 1, -2228764, 1, 1, -2228760, 1, 1, -2228756, 1, 1, -2228752, 1, 1, -2228748, 1, 1, -2228744, 1, 1, -2228740, 1, 1, -2228736, 1, 1, -2228732, 1, 1, -2228728, 1, 1, -2228724, 1, 1, -2228720, 1, 1, -2228716, 1, 1, -2228712, 1, 1, -2228708, 1, 1, -2228704, 1, 1, -2228700, 1, 1, -2228696, 1, 1, -2228692, 1, 1, -2228688, 1, 1, -2228684, 1, 1, -2228680, 1, 1, -2228676, 1, 1, -2228672, 1, 1, -2228668, 1, 1, -2228664, 1, 1, -2228660, 1, 1, -2228656, 1, 1, -2228652, 1, 1, -2228648, 1, 1, -2228644, 1, 1, -2228640, 1, 1, -2228636, 1, 1, -2228632, 1, 1, -2228628, 1, 1, -2228624, 1, 1, -2228620, 1, 1, -2228616, 1, 1, -2228612, 1, 1, -2228608, 1, 1, -2228604, 1, 1, -2228600, 1, 1, -2228596, 1, 1, -2228592, 1, 1, -2228588, 1, 1, -2228584, 1, 1, -2228580, 1, 1, -2228576, 1, 1, -2228572, 1, 1, -2228568, 1, 1, -2228564, 1, 1, -2228560, 1, 1, -2228556, 1, 1, -2228552, 1, 1, -2228548, 1, 1, -2228544, 1, 1, -2228540, 1, 1, -2228536, 1, 1, -2228532, 1, 1, -2228528, 1, 1, -2228524, 1, 1, -2228520, 1, 1, -2228516, 1, 1, -2228512, 1, 1, -2228508, 1, 1, -4391872, 1, 1, -4588480, 1, 1, -4785088, 1, 1, -4981696, 1, 1, -5178304, 1, 1, -5374912, 1, 1, -2228504, 1, 1, -2425112, 1, 1, -2621720, 1, 1, -3211544, 1, 1, -3014936, 1, 1, -2818328, 1, 1, -4391192, 1, 1, -4194584, 1, 1, -3997976, 1, 1, -3801368, 1, 1, -3604760, 1, 1, -3408152, 1, 1, -5570840, 1, 1, -5374232, 1, 1, -5177624, 1, 1, -4981016, 1, 1, -4784408, 1, 1, -4587800, 1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2073082663]
+
+[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=1386439269]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 47.188408
+text = "Coins"
+label_settings = SubResource("LabelSettings_675ay")
+script = ExtResource("12_sh1tq")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1377376370]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 422.0
+offset_top = 91.0
+offset_right = 511.0
+offset_bottom = 142.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+text = "dead"
+label_settings = SubResource("LabelSettings_q41qf")
+script = ExtResource("13_xu66h")
+metadata/_edit_use_anchors_ = true
+
+[node name="death_pit" parent="." unique_id=2060706043 instance=ExtResource("14_ig6gj")]
+position = Vector2(-3491, 688)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit" unique_id=2063749034]
+position = Vector2(-7218, -245)
+shape = SubResource("WorldBoundaryShape2D_yk4f3")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1029444358]
+position = Vector2(-14065, 114)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1023063417]
+position = Vector2(0, -10)
+shape = SubResource("WorldBoundaryShape2D_qsmat")
+
+[node name="golem" type="Area2D" parent="." unique_id=1334287257]
+position = Vector2(-13126, -606)
+scale = Vector2(0.44722223, 0.44722223)
+collision_mask = 4
+script = ExtResource("15_nso2f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="golem" unique_id=1020517575]
+position = Vector2(-15.651519, -20.12418)
+shape = SubResource("RectangleShape2D_q41qf")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1866788051]
+position = Vector2(-11959, -313)
+collision_mask = 4
+script = ExtResource("16_sai06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1082458335]
+position = Vector2(311, -320.5)
+shape = SubResource("RectangleShape2D_hy5x3")
+
+[node name="Coin" parent="." unique_id=1713819864 instance=ExtResource("9_ih1td")]
+position = Vector2(-13974, -628)
+
+[node name="Coin2" parent="." unique_id=658206046 instance=ExtResource("9_ih1td")]
+position = Vector2(-13855, -563)
+
+[node name="Coin3" parent="." unique_id=70527483 instance=ExtResource("9_ih1td")]
+position = Vector2(-13704, -480)
+
+[node name="Spike2" parent="." unique_id=539966108 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12999, -394)
+
+[node name="Spike3" parent="." unique_id=1366044947 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12640, -131)
+
+[node name="Spike4" parent="." unique_id=1495518848 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12784, -538)
+
+[node name="Spike5" parent="." unique_id=283949916 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12538, -657)
+
+[node name="Spike11" parent="." unique_id=907289911 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12195, -337)
+
+[node name="Spike12" parent="." unique_id=393934413 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12076, -152)
+
+[node name="Spike13" parent="." unique_id=74263663 instance=ExtResource("8_bx2t0")]
+position = Vector2(-12345, -516)
+
+[node name="Spike14" parent="." unique_id=432711752 instance=ExtResource("8_bx2t0")]
+position = Vector2(-11876, -151)
+
+[node name="Spike15" parent="." unique_id=96675324 instance=ExtResource("8_bx2t0")]
+position = Vector2(-11683, -151)
+
+[node name="Spike16" parent="." unique_id=1116645090 instance=ExtResource("8_bx2t0")]
+position = Vector2(-11509, -159)
+
+[node name="Spike17" parent="." unique_id=729250814 instance=ExtResource("8_bx2t0")]
+position = Vector2(-11506, -344)
+
+[node name="Spike19" type="Sprite2D" parent="." unique_id=1836600149]
+position = Vector2(-11450, -740)
+scale = Vector2(0.5111767, 0.5111767)
+texture = ExtResource("17_hasdo")
+
+[node name="Spike18" type="Sprite2D" parent="." unique_id=1883971698]
+position = Vector2(-11322, -625.99994)
+scale = Vector2(0.5398671, 0.5398671)
+texture = ExtResource("17_hasdo")
+offset = Vector2(-233.38867, 62.978394)
+
+[node name="Coin6" parent="." unique_id=1625584656 instance=ExtResource("9_ih1td")]
+position = Vector2(-11191, -284)
+
+[node name="Coin7" parent="." unique_id=1947215627 instance=ExtResource("9_ih1td")]
+position = Vector2(-11073, -124)
+
+[node name="Coin8" parent="." unique_id=994873296 instance=ExtResource("9_ih1td")]
+position = Vector2(-10999, -463)
+
+[node name="Coin9" parent="." unique_id=918024780 instance=ExtResource("9_ih1td")]
+position = Vector2(-12562, -24)
+
+[node name="Spike20" parent="." unique_id=1958332263 instance=ExtResource("8_bx2t0")]
+position = Vector2(-11064, -654)
+
+[node name="Spike21" parent="." unique_id=1181720575 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10831, -177)
+
+[node name="Coin10" parent="." unique_id=1667150625 instance=ExtResource("9_ih1td")]
+position = Vector2(-10744, -513)
+
+[node name="Spike22" parent="." unique_id=1200633195 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10647, -33)
+
+[node name="Spike23" parent="." unique_id=79276257 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10494, -162)
+
+[node name="Coin11" parent="." unique_id=909308550 instance=ExtResource("9_ih1td")]
+position = Vector2(-10596, -305)
+
+[node name="Coin12" parent="." unique_id=697014348 instance=ExtResource("9_ih1td")]
+position = Vector2(-12951, -154)
+
+[node name="Coin13" parent="." unique_id=2061616682 instance=ExtResource("9_ih1td")]
+position = Vector2(-10424, -502)
+
+[node name="Spike24" parent="." unique_id=748597155 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9956, -652)
+
+[node name="Spike25" parent="." unique_id=1629225349 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10370, -17)
+
+[node name="Spike26" parent="." unique_id=1359396436 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10660, -638)
+
+[node name="Spike27" parent="." unique_id=513177212 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10170, -165)
+
+[node name="Coin14" parent="." unique_id=742948114 instance=ExtResource("9_ih1td")]
+position = Vector2(-10244, -301)
+
+[node name="Coin15" parent="." unique_id=2017385118 instance=ExtResource("9_ih1td")]
+position = Vector2(-10092, -451)
+
+[node name="Spike28" parent="." unique_id=1132345914 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10155, -24)
+
+[node name="Spike29" parent="." unique_id=303576540 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10833, -28)
+
+[node name="Spike30" parent="." unique_id=1852334530 instance=ExtResource("8_bx2t0")]
+position = Vector2(-10320, -651)
+
+[node name="Spike31" parent="." unique_id=1460628160 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9772, -537)
+
+[node name="Coin16" parent="." unique_id=977355128 instance=ExtResource("9_ih1td")]
+position = Vector2(-9890, -383)
+
+[node name="Coin18" parent="." unique_id=896653687 instance=ExtResource("9_ih1td")]
+position = Vector2(-9619, -322)
+
+[node name="Spike32" parent="." unique_id=2085344592 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9541, -56)
+
+[node name="Spike33" parent="." unique_id=953252029 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9346, -414)
+
+[node name="Spike34" parent="." unique_id=924841381 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9075, -573)
+
+[node name="Spike35" parent="." unique_id=1906289283 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8783, -295)
+
+[node name="Spike36" parent="." unique_id=824762464 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8765, -573)
+
+[node name="Spike37" parent="." unique_id=591912446 instance=ExtResource("8_bx2t0")]
+position = Vector2(-9552, -465)
+
+[node name="Spike38" parent="." unique_id=1353204171 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8368, -40)
+
+[node name="Spike39" parent="." unique_id=691330559 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8512, -442)
+
+[node name="Spike40" parent="." unique_id=2067456685 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8006, -384)
+
+[node name="Spike41" parent="." unique_id=1223227105 instance=ExtResource("8_bx2t0")]
+position = Vector2(-7545, -62)
+
+[node name="Spike42" parent="." unique_id=1874425025 instance=ExtResource("8_bx2t0")]
+position = Vector2(-7509, -534)
+
+[node name="Spike43" parent="." unique_id=1448528024 instance=ExtResource("8_bx2t0")]
+position = Vector2(-7135, -288)
+
+[node name="Spike44" parent="." unique_id=2045639881 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6721, -49)
+
+[node name="Spike45" parent="." unique_id=169317366 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6753, -500)
+
+[node name="Spike46" parent="." unique_id=1091408009 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6493, -36)
+
+[node name="Spike47" parent="." unique_id=1845437850 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6171, -560)
+
+[node name="Spike48" parent="." unique_id=1253210438 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5742, -27)
+
+[node name="Spike49" parent="." unique_id=1166667244 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5932, -553)
+
+[node name="Spike50" parent="." unique_id=1457440575 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5532, -25)
+
+[node name="Spike51" parent="." unique_id=62728959 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5538, -554)
+
+[node name="Spike52" parent="." unique_id=1280544722 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5307, -9)
+
+[node name="Coin19" parent="." unique_id=722564680 instance=ExtResource("9_ih1td")]
+position = Vector2(-9238, -195)
+
+[node name="Coin20" parent="." unique_id=1908961864 instance=ExtResource("9_ih1td")]
+position = Vector2(-8890, -103)
+
+[node name="Spike53" parent="." unique_id=1751992678 instance=ExtResource("8_bx2t0")]
+position = Vector2(-4592, -530)
+
+[node name="Spike54" parent="." unique_id=1075368692 instance=ExtResource("8_bx2t0")]
+position = Vector2(-8204, -598)
+
+[node name="Spike55" parent="." unique_id=1142776020 instance=ExtResource("8_bx2t0")]
+position = Vector2(-7752, -529)
+
+[node name="Spike64" parent="." unique_id=1666429338 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6559, -536)
+
+[node name="Spike65" parent="." unique_id=1772349613 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6364, -558)
+
+[node name="Spike66" parent="." unique_id=195664372 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6307, -39)
+
+[node name="Spike56" parent="." unique_id=311882584 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5299, -534)
+
+[node name="Spike57" parent="." unique_id=936953369 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5076, -11)
+
+[node name="Spike58" parent="." unique_id=1946002811 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5034, -530)
+
+[node name="Spike59" parent="." unique_id=1851027736 instance=ExtResource("8_bx2t0")]
+position = Vector2(-4808, -530)
+
+[node name="Spike60" parent="." unique_id=1256725913 instance=ExtResource("8_bx2t0")]
+position = Vector2(-4866, -51)
+
+[node name="Spike61" parent="." unique_id=992334779 instance=ExtResource("8_bx2t0")]
+position = Vector2(-6111, -39)
+
+[node name="Coin21" parent="." unique_id=1981586455 instance=ExtResource("9_ih1td")]
+position = Vector2(-7258, -153)
+
+[node name="Coin24" parent="." unique_id=1276204065 instance=ExtResource("9_ih1td")]
+position = Vector2(-6850, -181)
+
+[node name="Coin25" parent="." unique_id=1730638192 instance=ExtResource("9_ih1td")]
+position = Vector2(-9008, -327)
+
+[node name="Coin26" parent="." unique_id=2000195494 instance=ExtResource("9_ih1td")]
+position = Vector2(-8571, -97)
+
+[node name="Coin27" parent="." unique_id=1232447161 instance=ExtResource("9_ih1td")]
+position = Vector2(-8367, -266)
+
+[node name="Coin28" parent="." unique_id=1188555226 instance=ExtResource("9_ih1td")]
+position = Vector2(-7986, -72)
+
+[node name="Coin29" parent="." unique_id=631676572 instance=ExtResource("9_ih1td")]
+position = Vector2(-7811, -70)
+
+[node name="Coin30" parent="." unique_id=1897762426 instance=ExtResource("9_ih1td")]
+position = Vector2(-7656, -208)
+
+[node name="Coin31" parent="." unique_id=246140235 instance=ExtResource("9_ih1td")]
+position = Vector2(-7452, -303)
+
+[node name="Coin32" parent="." unique_id=1808483986 instance=ExtResource("9_ih1td")]
+position = Vector2(-6574, -318)
+
+[node name="Coin33" parent="." unique_id=1636257183 instance=ExtResource("9_ih1td")]
+position = Vector2(-6144, -350)
+
+[node name="Coin34" parent="." unique_id=1254835699 instance=ExtResource("9_ih1td")]
+position = Vector2(-5704, -321)
+
+[node name="Coin35" parent="." unique_id=1869954156 instance=ExtResource("9_ih1td")]
+position = Vector2(-5308, -298)
+
+[node name="Coin36" parent="." unique_id=1054879393 instance=ExtResource("9_ih1td")]
+position = Vector2(-4968, -290)
+
+[node name="power" parent="." unique_id=1925039425 instance=ExtResource("18_ybamj")]
+position = Vector2(-4479, -18)
+
+[node name="Spike62" parent="." unique_id=1798898164 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5706, -552)
+
+[node name="Spike63" parent="." unique_id=159930095 instance=ExtResource("8_bx2t0")]
+position = Vector2(-5918, -47)
+
+[node name="power2" parent="." unique_id=1881144934 instance=ExtResource("18_ybamj")]
+position = Vector2(-12241, -52)
+
+[node name="power3" parent="." unique_id=186415645 instance=ExtResource("18_ybamj")]
+position = Vector2(-9800, -108)
+
+[node name="power4" parent="." unique_id=264254245 instance=ExtResource("18_ybamj")]
+position = Vector2(-7053, -68)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=453845093]
+visible = false
+offset_left = -23750.0
+offset_top = -10185.0
+offset_right = 9484.0
+offset_bottom = 4597.0
+color = Color(0, 0.4392157, 0.9764706, 0.3372549)
+script = ExtResource("19_4frl0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1252821623]
+offset_left = -14686.0
+offset_top = -385.0
+offset_right = -14144.0
+offset_bottom = -232.0
+text = "Power ups are just for extra hits
+
+GET SWIMMING!!!"
+label_settings = SubResource("LabelSettings_dmmei")
+
+[node name="Coin17" parent="." unique_id=2021979278 instance=ExtResource("9_ih1td")]
+position = Vector2(-13184, -174)
+
+[connection signal="area_entered" from="golem" to="golem" method="_on_area_entered"]
+[connection signal="body_entered" from="golem" to="golem" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]

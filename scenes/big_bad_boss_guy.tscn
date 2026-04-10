@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://vns7vgyjkk62"]
+
+[ext_resource type="Script" uid="uid://c1qduvofmwftn" path="res://scripts/big_bad_boss_guy.gd" id="1_a1kmu"]
+[ext_resource type="Texture2D" uid="uid://cop7kku7j3j2n" path="res://assets/Enemy.png" id="2_lpgjm"]
+[ext_resource type="Script" uid="uid://bhq7nmwadntqp" path="res://scripts/head.gd" id="3_2vi87"]
+[ext_resource type="AudioStream" uid="uid://bee3o02kl87n7" path="res://assets/hurt.wav" id="4_pjs0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1kmu"]
+size = Vector2(269.39926, 547.944)
+
+[node name="Node2D" type="Node2D" unique_id=712999090]
+script = ExtResource("1_a1kmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1455839433]
+position = Vector2(3.3463783, -107.25001)
+scale = Vector2(0.6970337, 0.7395105)
+texture = ExtResource("2_lpgjm")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1527083533 groups=["head"]]
+position = Vector2(0.9999994, -96)
+scale = Vector2(0.3526365, 0.3741259)
+collision_mask = 2
+script = ExtResource("3_2vi87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1971786756]
+position = Vector2(1.4178927, -20.046722)
+shape = SubResource("RectangleShape2D_a1kmu")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D2" unique_id=1899972233]
+stream = ExtResource("4_pjs0r")
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

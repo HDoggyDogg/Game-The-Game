@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://d1dumylkm73dx"]
+
+[ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="1_2epne"]
+[ext_resource type="Script" uid="uid://bk4xy6f8re1mg" path="res://scripts/press e.gd" id="1_4nqmc"]
+[ext_resource type="PackedScene" uid="uid://cujkl47oa4mk6" path="res://scenes/level3_portal.tscn" id="1_7plkq"]
+[ext_resource type="PackedScene" uid="uid://4x3q41oekkdx" path="res://scenes/level1_portal.tscn" id="2_r77uv"]
+[ext_resource type="Texture2D" uid="uid://cgonfylmgyx7g" path="res://assets/terrain_grass_block_top.png" id="2_rif6e"]
+[ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="3_chg43"]
+[ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="4_chg43"]
+[ext_resource type="PackedScene" uid="uid://cyli0q0xdg58w" path="res://scenes/level2_portal.tscn" id="4_rif6e"]
+[ext_resource type="PackedScene" uid="uid://bqctv6ryrhcn0" path="res://scenes/level4_portal.tscn" id="9_ckc44"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4nqmc"]
+font_size = 38
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r77uv"]
+texture = ExtResource("1_2epne")
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 2.6978817, 8, 2.5180225, 8, 2.5180225, -0.35971832, 2.1583061, -8, 2.5180225)
+5:0/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nqmc"]
+texture = ExtResource("2_rif6e")
+texture_region_size = Vector2i(16, 4)
+0:1/size_in_atlas = Vector2i(4, 15)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.96796, -30.038136, 32.051865, -30.12204, 31.661083, 28.836855, -31.95837, 28.093636)
+
+[sub_resource type="TileSet" id="TileSet_7plkq"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_r77uv")
+sources/1 = SubResource("TileSetAtlasSource_4nqmc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7plkq"]
+font_size = 39
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=238411472]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=681108813]
+offset_left = -23171.0
+offset_top = -10706.0
+offset_right = 10063.0
+offset_bottom = 4076.0
+color = Color(0.9295633, 0.9240027, 0.92325884, 1)
+
+[node name="Label" type="Label" parent="." unique_id=406446244]
+offset_left = 178.0
+offset_top = -448.0
+offset_right = 288.0
+offset_bottom = -402.0
+text = "Level 1"
+label_settings = SubResource("LabelSettings_4nqmc")
+
+[node name="Label2" type="Label" parent="." unique_id=2082980843]
+offset_left = 511.0
+offset_top = -450.0
+offset_right = 638.0
+offset_bottom = -397.0
+text = "Level 2"
+label_settings = SubResource("LabelSettings_4nqmc")
+
+[node name="Label3" type="Label" parent="." unique_id=1606208839]
+offset_left = 837.0
+offset_top = -450.0
+offset_right = 964.0
+offset_bottom = -397.0
+text = "Level 3"
+label_settings = SubResource("LabelSettings_4nqmc")
+
+[node name="Label4" type="Label" parent="." unique_id=2132348263]
+offset_left = 1156.0
+offset_top = -450.0
+offset_right = 1283.0
+offset_bottom = -397.0
+text = "Level 4"
+label_settings = SubResource("LabelSettings_4nqmc")
+
+[node name="level1" parent="." unique_id=1009486554 instance=ExtResource("2_r77uv")]
+position = Vector2(220, -1)
+
+[node name="level2" parent="." unique_id=70935136 instance=ExtResource("4_rif6e")]
+position = Vector2(557, -2)
+
+[node name="level3" parent="." unique_id=394454587 instance=ExtResource("1_7plkq")]
+position = Vector2(885, 0)
+
+[node name="level4" parent="." unique_id=644257137 instance=ExtResource("9_ckc44")]
+position = Vector2(1204, -4)
+
+[node name="TileMap2" type="TileMap" parent="." unique_id=1679967364]
+position = Vector2(572, 570)
+tile_set = SubResource("TileSet_7plkq")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2228260, 1, 1, -2228256, 1, 1, -2228252, 1, 1, -2228248, 1, 1, -2228244, 1, 1, -2228240, 1, 1, -2228236, 1, 1, -2228232, 1, 1, -2228228, 1, 1, -2293760, 1, 1, -2293756, 1, 1, -2293752, 1, 1, -2293748, 1, 1, -2293744, 1, 1, -2228264, 1, 1, -2228268, 1, 1, -2424876, 1, 1, -2621484, 1, 1, -2818092, 1, 1, -3014700, 1, 1, -3211308, 1, 1, -3407916, 1, 1, -3604524, 1, 1, -3801132, 1, 1, -2293740, 1, 1, -2293736, 1, 1, -2293732, 1, 1, -2293728, 1, 1, -2293724, 1, 1, -2293720, 1, 1, -2293716, 1, 1, -2293712, 1, 1, -2293708, 1, 1, -2293704, 1, 1, -2293700, 1, 1, -2293696, 1, 1, -2293692, 1, 1, -2293688, 1, 1, -2293684, 1, 1, -2293680, 1, 1)
+
+[node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("3_chg43")]
+position = Vector2(-2, -9)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1827349980]
+position = Vector2(-6, -66)
+offset = Vector2(200, -200)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("4_chg43")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1030084142]
+
+[node name="Label3" type="Label" parent="CanvasLayer" unique_id=811791973]
+offset_left = 181.0
+offset_top = 46.0
+offset_right = 458.0
+offset_bottom = 110.0
+text = "press e bruh"
+label_settings = SubResource("LabelSettings_7plkq")
+horizontal_alignment = 1
+script = ExtResource("1_4nqmc")

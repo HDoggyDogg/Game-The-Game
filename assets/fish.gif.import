@@ -1,0 +1,14 @@
+[remap]
+
+importer="import_gif_to_animated_texture"
+type="AnimatedTexture"
+uid="uid://db25k6mq037jl"
+path="res://.godot/imported/fish.gif-d592d6d86c691ce46d93defc88d7edfc.tres"
+
+[deps]
+
+source_file="res://assets/fish.gif"
+dest_files=["res://.godot/imported/fish.gif-d592d6d86c691ce46d93defc88d7edfc.tres"]
+
+[params]
+

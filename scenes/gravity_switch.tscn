@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c3w4cmnredv2g"]
+
+[ext_resource type="Texture2D" uid="uid://bwgwkfnhnu7au" path="res://assets/switch.png" id="1_3mrns"]
+[ext_resource type="Script" uid="uid://tjywyldlcsei" path="res://scripts/switch.gd" id="2_13khj"]
+[ext_resource type="AudioStream" uid="uid://de43cnwmkviuw" path="res://assets/Power-Up.wav" id="3_gqvh8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vid6n"]
+radius = 46.572495
+height = 114.534065
+
+[node name="Node2D" type="Node2D" unique_id=1862880805]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=539839994]
+position = Vector2(-1, -56)
+scale = Vector2(0.38163686, 0.3816369)
+texture = ExtResource("1_3mrns")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=474096456]
+position = Vector2(31, -25)
+collision_mask = 6
+script = ExtResource("2_13khj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1124045952]
+position = Vector2(-36, -27)
+rotation = 0.5235988
+shape = SubResource("CapsuleShape2D_vid6n")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D" unique_id=1617881839]
+position = Vector2(-31, 25)
+stream = ExtResource("3_gqvh8")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

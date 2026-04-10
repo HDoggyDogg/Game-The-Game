@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://d3ojki23agogt"]
+
+[ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="1_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="2_hrcei"]
+[ext_resource type="Texture2D" uid="uid://dwl25k8bmj3i2" path="res://assets/1000003828.jpg" id="2_ve5ok"]
+[ext_resource type="Texture2D" uid="uid://tnpa5v6i2ti0" path="res://assets/It's Dark.png" id="2_xa7n4"]
+[ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="3_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="5_76toy"]
+[ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="6_8g4ke"]
+[ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="7_56gwk"]
+[ext_resource type="PackedScene" uid="uid://c6ilbjg5hqyu5" path="res://scenes/power.tscn" id="9_8g4ke"]
+[ext_resource type="Script" uid="uid://dt2vrixscjgwe" path="res://scripts/dark.gd" id="9_bo4dx"]
+[ext_resource type="PackedScene" uid="uid://yohi75o0toyv" path="res://scenes/flashlight.tscn" id="9_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://dtj1fqab6hhb4" path="res://scenes/enemy.tscn" id="11_8g4ke"]
+[ext_resource type="PackedScene" uid="uid://7u227r66qwg8" path="res://scenes/coin.tscn" id="11_76toy"]
+[ext_resource type="Texture2D" uid="uid://d37ljx6tfv77o" path="res://assets/1000003764.jpg" id="12_cleqw"]
+[ext_resource type="Texture2D" uid="uid://db25k6mq037jl" path="res://assets/fish.gif" id="13_56gwk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ve5ok"]
+texture = ExtResource("3_xa7n4")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56gwk"]
+load_path = "res://.godot/imported/terrain_grass_block_top.png-a28563e7bff586c7143cb05e4e4ca64c.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cleqw"]
+texture = SubResource("CompressedTexture2D_56gwk")
+texture_region_size = Vector2i(16, 4)
+0:1/size_in_atlas = Vector2i(4, 15)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32.014854, -30.755844, 32.37457, -30.575981, 32.17501, 30.48159, -32.17501, 29.917114)
+
+[sub_resource type="TileSet" id="TileSet_wvb8j"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 4
+sources/0 = SubResource("TileSetAtlasSource_ve5ok")
+sources/1 = SubResource("TileSetAtlasSource_cleqw")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g8vcy"]
+normal = Vector2(1, 0)
+distance = -499.0
+
+[sub_resource type="SystemFont" id="SystemFont_vtaks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cqal4"]
+font = SubResource("SystemFont_vtaks")
+font_size = 29
+
+[sub_resource type="SystemFont" id="SystemFont_dinhu"]
+msdf_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_o3sye"]
+font = SubResource("SystemFont_dinhu")
+font_size = 37
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_24ks5"]
+distance = 308.0
+
+[node name="Node2D" type="Node2D" unique_id=2070867044]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=386465426]
+offset_left = -23220.0
+offset_top = -10048.0
+offset_right = 10014.0
+offset_bottom = 4734.0
+color = Color(0.12683201, 0.00012056753, 0.19794932, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=81706222]
+position = Vector2(-14217, 1)
+offset = Vector2(200, -200)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+script = ExtResource("1_6ep0u")
+
+[node name="1000003828" type="Sprite2D" parent="." unique_id=455574690]
+position = Vector2(-15156, -143)
+scale = Vector2(0.344098, 0.34409803)
+texture = ExtResource("2_ve5ok")
+
+[node name="Node2D2" parent="." unique_id=1045455658 instance=ExtResource("11_76toy")]
+position = Vector2(-15002, -8)
+
+[node name="Node2D3" parent="." unique_id=1083509755 instance=ExtResource("11_76toy")]
+position = Vector2(-13461, 0)
+
+[node name="Node2D4" parent="." unique_id=968793124 instance=ExtResource("11_76toy")]
+position = Vector2(-13373, -2)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1884877392]
+position = Vector2(574, 579)
+tile_set = SubResource("TileSet_wvb8j")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2229153, 1, 1, -2229149, 1, 1, -2229145, 1, 1, -2229141, 1, 1, -2229137, 1, 1, -2229133, 1, 1, -5112491, 131072, 0, -3343024, 327680, 1, -3211952, 327680, 1, -2229157, 1, 1, -2229161, 1, 1, -2229165, 1, 1, -2229110, 1, 1, -2229106, 1, 1, -2229102, 1, 1, -2229098, 1, 1, -2229094, 1, 1, -2229194, 1, 1, -2229198, 1, 1, -2229202, 1, 1, -2229206, 1, 1, -2229210, 1, 1, -2229090, 1, 1, -2229086, 1, 1, -2229082, 1, 1, -2229078, 1, 1, -2229074, 1, 1, -2229070, 1, 1, -2229066, 1, 1, -2229129, 1, 1, -2229062, 1, 1, -2229058, 1, 1, -2229054, 1, 1, -2229050, 1, 1, -2229046, 1, 1, -2229045, 1, 1, -2229041, 1, 1, -2229037, 1, 1, -2229033, 1, 1, -3015476, 1, 1, -3015480, 1, 1, -3015484, 1, 1, -3015488, 1, 1, -3015472, 1, 1, -3015468, 1, 1, -3015464, 1, 1, -2229029, 1, 1, -2229025, 1, 1, -3015460, 1, 1, -3015456, 1, 1, -3015452, 1, 1, -3015448, 1, 1, -3212096, 1, 1, -3408704, 1, 1, -3605312, 1, 1, -3801920, 1, 1, -3998528, 1, 1, -4195136, 1, 1, -4391744, 1, 1, -3015444, 1, 1, -3015440, 1, 1, -3015436, 1, 1, -3015432, 1, 1, -3015428, 1, 1, -3015424, 1, 1, -3015420, 1, 1, -3015416, 1, 1, -3015412, 1, 1, -3015408, 1, 1, -3015404, 1, 1, -1704729, 1, 1, -1704725, 1, 1, -1704721, 1, 1, -1704717, 1, 1, -1704713, 1, 1, -1704709, 1, 1, -1704705, 1, 1, -1704701, 1, 1, -1704697, 1, 1, -1704693, 1, 1, -1704689, 1, 1, -1704685, 1, 1, -1704681, 1, 1, -1704677, 1, 1, -2228958, 1, 1, -2228954, 1, 1, -2228950, 1, 1, -2228946, 1, 1, -2228942, 1, 1, -2228938, 1, 1, -2228934, 1, 1, -2228930, 1, 1, -2228926, 1, 1, -2228922, 1, 1, -2228918, 1, 1, -2228914, 1, 1, -2228910, 1, 1, -2228906, 1, 1, -4719357, 1, 1, -4719361, 1, 1, -4719365, 1, 1, -5964491, 1, 1, -5964487, 1, 1, -5964483, 1, 1, -5964479, 1, 1, -5964475, 1, 1, -5964471, 1, 1, -5964467, 1, 1, -5964463, 1, 1, -5964459, 1, 1, -5964455, 1, 1, -5964451, 1, 1, -8520469, 1, 1, -8520473, 1, 1, -8520477, 1, 1, -8520481, 1, 1, -8520485, 1, 1, -8520489, 1, 1, -8520493, 1, 1, -2228902, 1, 1, -2228898, 1, 1, -2228894, 1, 1, -2228890, 1, 1, -2228886, 1, 1, -2228882, 1, 1, -2228878, 1, 1, -2228874, 1, 1, -2228870, 1, 1, -2228866, 1, 1, -2228862, 1, 1, -2228858, 1, 1, -2228854, 1, 1, -2228850, 1, 1, -2228846, 1, 1, -2228842, 1, 1, -2228838, 1, 1, -2228834, 1, 1, -2228830, 1, 1, -2228826, 1, 1, -2228822, 1, 1, -2228786, 1, 1, -2228782, 1, 1, -2228790, 1, 1, -2228778, 1, 1, -2228774, 1, 1, -2228770, 1, 1, -2228766, 1, 1, -2228762, 1, 1, -2228758, 1, 1, -2228754, 1, 1, -2228750, 1, 1, -2228712, 1, 1, -2228716, 1, 1, -2228708, 1, 1, -2228704, 1, 1, -2228700, 1, 1, -2228696, 1, 1, -2228692, 1, 1, -2228688, 1, 1, -2228685, 1, 1, -2228681, 1, 1, -2228677, 1, 1, -2228673, 1, 1, -2228669, 1, 1, -2228665, 1, 1, -2228661, 1, 1, -2228657, 1, 1, -3342796, 1, 1, -3342792, 1, 1, -3342788, 1, 1, -3342784, 1, 1, -3342780, 1, 1, -3342776, 1, 1, -3342772, 1, 1, -2228653, 1, 1, -2228649, 1, 1, -2228645, 1, 1, -2228641, 1, 1, -2228637, 1, 1, -2228633, 1, 1, -2228629, 1, 1, -2228625, 1, 1, -2228621, 1, 1, -2228617, 1, 1, -2228613, 1, 1, -2228609, 1, 1, -2228605, 1, 1, -2228601, 1, 1, -2228597, 1, 1, -2228593, 1, 1, -2228589, 1, 1, -2228585, 1, 1, -2228581, 1, 1, -2228577, 1, 1, -2228573, 1, 1, -5767604, 1, 1, -5767600, 1, 1, -5767596, 1, 1, -5767592, 1, 1, -5767588, 1, 1, -5767584, 1, 1, -5767580, 1, 1, -5767576, 1, 1, -5767572, 1, 1, -5767568, 1, 1, -3342749, 1, 1, -3342745, 1, 1, -3342741, 1, 1, -3342737, 1, 1, -3342733, 1, 1, -3342729, 1, 1, -3342725, 1, 1, -3342721, 1, 1, -3342717, 1, 1, -3342713, 1, 1, -3342709, 1, 1, -3342705, 1, 1)
+
+[node name="Area2D" parent="TileMap" unique_id=2060706043 instance=ExtResource("5_76toy")]
+position = Vector2(-16910, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D" unique_id=774690876]
+shape = SubResource("WorldBoundaryShape2D_g8vcy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1180268621]
+
+[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=2039446686]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 47.188408
+text = "Coins"
+label_settings = SubResource("LabelSettings_cqal4")
+script = ExtResource("6_8g4ke")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1659905065]
+texture_filter = 1
+texture_repeat = 1
+offset_left = 422.0
+offset_top = 91.0
+offset_right = 511.0
+offset_bottom = 142.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+text = "dead"
+label_settings = SubResource("LabelSettings_o3sye")
+script = ExtResource("7_56gwk")
+metadata/_edit_use_anchors_ = true
+
+[node name="death_pit" parent="." unique_id=1684210137 instance=ExtResource("5_76toy")]
+position = Vector2(-14630, 210)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit" unique_id=1973537541]
+position = Vector2(-13713, 362)
+shape = SubResource("WorldBoundaryShape2D_24ks5")
+one_way_collision = true
+
+[node name="Node2D" parent="." unique_id=2098044318 instance=ExtResource("9_xa7n4")]
+position = Vector2(-14083, 0)
+
+[node name="Node2D5" parent="." unique_id=712999090 instance=ExtResource("11_8g4ke")]
+position = Vector2(-13002, -4)
+
+[node name="Node2D6" parent="." unique_id=932267934 instance=ExtResource("9_xa7n4")]
+position = Vector2(-12572, -220)
+
+[node name="Node2D7" parent="." unique_id=517432601 instance=ExtResource("11_76toy")]
+position = Vector2(-12698, -20)
+
+[node name="Node2D8" parent="." unique_id=602481438 instance=ExtResource("11_76toy")]
+position = Vector2(-12559, -20)
+
+[node name="Node2D9" parent="." unique_id=728953081 instance=ExtResource("11_76toy")]
+position = Vector2(-12418, -17)
+
+[node name="Node2D10" parent="." unique_id=882334373 instance=ExtResource("11_76toy")]
+position = Vector2(-12278, -19)
+
+[node name="Node2D11" parent="." unique_id=224936348 instance=ExtResource("11_76toy")]
+position = Vector2(-12071, 105)
+
+[node name="Node2D12" parent="." unique_id=1925039425 instance=ExtResource("9_8g4ke")]
+position = Vector2(-10518, -13)
+
+[node name="Node2D13" parent="." unique_id=2089942181 instance=ExtResource("11_76toy")]
+position = Vector2(-10909, -22)
+
+[node name="Node2D14" parent="." unique_id=1419575785 instance=ExtResource("11_76toy")]
+position = Vector2(-10752, -22)
+
+[node name="Node2D15" parent="." unique_id=676571783 instance=ExtResource("11_76toy")]
+position = Vector2(-10822, -945)
+
+[node name="Node2D16" parent="." unique_id=2023838204 instance=ExtResource("11_76toy")]
+position = Vector2(-10722, -944)
+
+[node name="Node2D17" parent="." unique_id=1605696802 instance=ExtResource("11_76toy")]
+position = Vector2(-10617, -949)
+
+[node name="Node2D18" parent="." unique_id=1851825918 instance=ExtResource("11_76toy")]
+position = Vector2(-10511, -949)
+
+[node name="Node2D19" parent="." unique_id=1615920089 instance=ExtResource("9_8g4ke")]
+position = Vector2(-10377, -927)
+
+[node name="Fish" type="Sprite2D" parent="." unique_id=158981151]
+position = Vector2(-12234, -1693)
+texture = ExtResource("13_56gwk")
+
+[node name="Node2D20" parent="." unique_id=1127788399 instance=ExtResource("11_8g4ke")]
+position = Vector2(-10236, -2)
+
+[node name="Node2D21" parent="." unique_id=968473051 instance=ExtResource("11_8g4ke")]
+position = Vector2(-10069, -1)
+
+[node name="Node2D22" parent="." unique_id=2062469545 instance=ExtResource("11_8g4ke")]
+position = Vector2(-9930, -2)
+
+[node name="GifToAnimatedTexturePlugin" type="GifToAnimatedTexturePlugin" parent="." unique_id=480585787]
+
+[node name="Node2D23" parent="." unique_id=74231054 instance=ExtResource("11_76toy")]
+position = Vector2(-9703, -21)
+
+[node name="Node2D24" parent="." unique_id=137668558 instance=ExtResource("11_76toy")]
+position = Vector2(-9555, -21)
+
+[node name="Node2D27" parent="." unique_id=731759293 instance=ExtResource("11_8g4ke")]
+position = Vector2(-7890, -2)
+
+[node name="Node2D26" parent="." unique_id=1012518382 instance=ExtResource("9_8g4ke")]
+position = Vector2(-9309, -8)
+
+[node name="Node2D25" parent="." unique_id=88128048 instance=ExtResource("9_xa7n4")]
+position = Vector2(-8219, -9)
+
+[node name="Node2D28" parent="." unique_id=1177824634 instance=ExtResource("11_8g4ke")]
+position = Vector2(-8032, -2)
+
+[node name="Node2D29" parent="." unique_id=1747911564 instance=ExtResource("11_76toy")]
+position = Vector2(-6903, -18)
+
+[node name="Node2D30" parent="." unique_id=1583559207 instance=ExtResource("11_76toy")]
+position = Vector2(-6753, -16)
+
+[node name="Node2D31" parent="." unique_id=307191806 instance=ExtResource("11_76toy")]
+position = Vector2(-6621, -18)
+
+[node name="Node2D32" parent="." unique_id=973163803 instance=ExtResource("11_76toy")]
+position = Vector2(-6467, -23)
+
+[node name="Node2D33" parent="." unique_id=1272860339 instance=ExtResource("11_76toy")]
+position = Vector2(-6645, -282)
+
+[node name="Node2D34" parent="." unique_id=115602020 instance=ExtResource("11_76toy")]
+position = Vector2(-6514, -282)
+
+[node name="Node2D35" parent="." unique_id=1981200888 instance=ExtResource("11_8g4ke")]
+position = Vector2(-7102, -7)
+
+[node name="1000003764" type="Sprite2D" parent="." unique_id=1900377355]
+position = Vector2(-5968, -1032)
+scale = Vector2(0.50919735, 0.5091973)
+texture = ExtResource("12_cleqw")
+
+[node name="Node2D36" parent="." unique_id=1697152562 instance=ExtResource("11_76toy")]
+position = Vector2(-6345, -879)
+
+[node name="Node2D37" parent="." unique_id=344596385 instance=ExtResource("11_76toy")]
+position = Vector2(-6226, -879)
+
+[node name="Node2D38" parent="." unique_id=584021677 instance=ExtResource("9_8g4ke")]
+position = Vector2(-6251, -11)
+
+[node name="Node2D39" parent="." unique_id=2073685350 instance=ExtResource("11_8g4ke")]
+position = Vector2(-5976, -274)
+
+[node name="Node2D40" parent="." unique_id=944418693 instance=ExtResource("11_8g4ke")]
+position = Vector2(-5821, -273)
+
+[node name="Node2D41" parent="." unique_id=1492918135 instance=ExtResource("11_8g4ke")]
+position = Vector2(-5723, -273)
+
+[node name="Node2D42" parent="." unique_id=960247989 instance=ExtResource("11_76toy")]
+position = Vector2(-5584, -280)
+
+[node name="Node2D43" parent="." unique_id=908916125 instance=ExtResource("11_76toy")]
+position = Vector2(-5441, -280)
+
+[node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("2_hrcei")]
+position = Vector2(-14291, -6)
+
+[node name="Dark" type="Sprite2D" parent="CharacterBody2D" unique_id=1274529601]
+visible = false
+position = Vector2(0, -84.00001)
+scale = Vector2(0.9470024, 0.94700253)
+texture = ExtResource("2_xa7n4")
+offset = Vector2(-8, -26)
+script = ExtResource("9_bo4dx")
+
+[node name="ColorRect3" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=2078812471]
+offset_left = -522.7017
+offset_top = 200.63303
+offset_right = 1092.9224
+offset_bottom = 324.18063
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=735986786]
+offset_left = -1968.3159
+offset_top = -7336.8335
+offset_right = -523.7583
+offset_bottom = 317.8452
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=24215410]
+offset_left = 527.8252
+offset_top = -6996.8135
+offset_right = 2326.288
+offset_bottom = 416.0498
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=1700980220]
+offset_left = -549.7314
+offset_top = -7135.1445
+offset_right = 549.731
+offset_bottom = -301.70117
+color = Color(0, 0, 0, 1)
