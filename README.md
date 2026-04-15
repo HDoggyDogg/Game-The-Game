@@ -5,7 +5,7 @@ Navigate through 5 short levels, each with their own gimmick. Jump on enemies, c
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Controls
-Left and Right = Movement
-Space = Jump
+Left and Right = Movement\
+Space = Jump\
 Down = Crouch
 ----------------------------
