@@ -4,7 +4,7 @@
 Navigate through 5 short levels, each with their own gimmick. Jump on enemies, collect coins, get extra jumps (if the level has them) and find secrets.
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Controls
+Controls\
 Left and Right = Movement\
 Space = Jump\
 Down = Crouch
