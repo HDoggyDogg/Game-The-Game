@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dp1txst6oani3"]
+
+[ext_resource type="AudioStream" uid="uid://s70ef547lo8o" path="res://assets/DarkLevel.wav" id="1_b0ehu"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1154394860]
+stream = ExtResource("1_b0ehu")

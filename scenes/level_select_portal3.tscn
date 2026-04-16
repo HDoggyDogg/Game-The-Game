@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c6x0ogeo3cpcu"]
+
+[ext_resource type="Texture2D" uid="uid://d4kxf40rdkswy" path="res://assets/portal.png" id="1_digp1"]
+[ext_resource type="Script" uid="uid://bxpsf42xjqmuw" path="res://scripts/level_select_portal3.gd" id="2_d438o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kh160"]
+radius = 91.0
+height = 308.0
+
+[node name="Node2D" type="Node2D" unique_id=679198294]
+
+[node name="Portal" type="Sprite2D" parent="." unique_id=235934649]
+position = Vector2(1, -193)
+rotation = -0.2617994
+texture = ExtResource("1_digp1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=849384373]
+collision_mask = 4
+script = ExtResource("2_d438o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1276154853]
+position = Vector2(17, -191)
+shape = SubResource("CapsuleShape2D_kh160")
+
+[node name="Timer" type="Timer" parent="Area2D" unique_id=1663989887]
+wait_time = 2.0
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]

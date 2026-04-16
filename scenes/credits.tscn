@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cxdhrdmudifwc"]
+
+[ext_resource type="Script" uid="uid://jo0h5j7eglhc" path="res://scripts/back.gd" id="1_0bpdh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yeqti"]
+font_size = 32
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=905003120]
+
+[node name="Button" type="Button" parent="." unique_id=1517023150]
+offset_left = 24.0
+offset_top = 33.0
+offset_right = 69.0
+offset_bottom = 64.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Back"
+script = ExtResource("1_0bpdh")
+
+[node name="Label" type="Label" parent="." unique_id=505506226]
+offset_left = 142.0
+offset_top = 51.0
+offset_right = 1017.0
+offset_bottom = 336.0
+text = "Code - Harry Derby (me)
+Art - Harry Derby
+Sounds - Harry Derby
+Level Design - Harry Derby
+Music - Joel Dobrovich
+Playtesters - Joel Dobrovich"
+label_settings = SubResource("LabelSettings_yeqti")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1365540812]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

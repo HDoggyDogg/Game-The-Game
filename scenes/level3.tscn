@@ -1,20 +1,33 @@
 [gd_scene format=3 uid="uid://co4xtnueavjaf"]
 
+[ext_resource type="Script" uid="uid://b535dno4c7smo" path="res://scripts/level_3.gd" id="1_07lh1"]
 [ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="1_b72m1"]
 [ext_resource type="Texture2D" uid="uid://cjchtap6y4c1a" path="res://assets/d0cf2ce9-ca2b-4be6-a428-5aa8b34da2d4.png" id="1_bradm"]
 [ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="2_5mhml"]
 [ext_resource type="Texture2D" uid="uid://pex4yvdr48tu" path="res://assets/1000003818.png" id="2_qewby"]
+[ext_resource type="Script" uid="uid://cvdt8b3pt5y2q" path="res://scripts/bazinga.gd" id="2_y1e0c"]
 [ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="3_rupth"]
-[ext_resource type="Texture2D" uid="uid://cgonfylmgyx7g" path="res://assets/terrain_grass_block_top.png" id="4_6qt4k"]
+[ext_resource type="Script" uid="uid://o3qyccax8uye" path="res://scripts/krabs.gd" id="4_a114e"]
 [ext_resource type="Texture2D" uid="uid://8gcdv8tv4sn3" path="res://assets/1000003383.png" id="4_e40mx"]
 [ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="5_fh4ka"]
 [ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="6_qewby"]
 [ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="7_bradm"]
+[ext_resource type="Script" uid="uid://q72ymm1pfpby" path="res://scripts/impressed.gd" id="7_s4dsi"]
+[ext_resource type="Texture2D" uid="uid://p1sd6640hk1j" path="res://assets/grass.png" id="7_y1e0c"]
 [ext_resource type="PackedScene" uid="uid://ctaa0uray88gk" path="res://scenes/fire.tscn" id="8_5mhml"]
 [ext_resource type="PackedScene" uid="uid://7u227r66qwg8" path="res://scenes/coin.tscn" id="9_rupth"]
 [ext_resource type="PackedScene" uid="uid://dtj1fqab6hhb4" path="res://scenes/enemy.tscn" id="10_fh4ka"]
 [ext_resource type="PackedScene" uid="uid://c6ilbjg5hqyu5" path="res://scenes/power.tscn" id="11_qewby"]
-[ext_resource type="PackedScene" uid="uid://dkpy3dilvuk1h" path="res://scenes/level_select_portal.tscn" id="15_a114e"]
+[ext_resource type="PackedScene" uid="uid://c6x0ogeo3cpcu" path="res://scenes/level_select_portal3.tscn" id="18_s4dsi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07lh1"]
+size = Vector2(1763.3818, 1352.1127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4dsi"]
+size = Vector2(1498.4067, 629.84125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uuvf"]
+size = Vector2(614.2444, 509.3733)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_got4s"]
 texture = ExtResource("3_rupth")
@@ -27,7 +40,7 @@ texture = ExtResource("3_rupth")
 5:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e40mx"]
-texture = ExtResource("4_6qt4k")
+texture = ExtResource("7_y1e0c")
 texture_region_size = Vector2i(16, 4)
 0:1/size_in_atlas = Vector2i(4, 15)
 0:1/0 = 0
@@ -48,33 +61,48 @@ distance = -499.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_6qt4k"]
 font_size = 42
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_14jow"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_07lh1"]
-font = SubResource("SystemFont_14jow")
-font_size = 29
-
-[sub_resource type="SystemFont" id="SystemFont_mvsps"]
-msdf_size = 56
+[sub_resource type="SystemFont" id="SystemFont_07lh1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6uuvf"]
-font = SubResource("SystemFont_mvsps")
+font = SubResource("SystemFont_07lh1")
+font_size = 29
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_x008a"]
+msdf_size = 56
+
+[sub_resource type="LabelSettings" id="LabelSettings_atr84"]
+font = SubResource("SystemFont_x008a")
 font_size = 37
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1108358457]
+script = ExtResource("1_07lh1")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1972153530]
-offset_left = -23640.0
-offset_top = -10253.0
-offset_right = 9594.0
-offset_bottom = 4529.0
+offset_left = -23021.0
+offset_top = -9910.0
+offset_right = 10213.0
+offset_bottom = 4872.0
 color = Color(1, 0.22727138, 0.19414833, 1)
 
 [node name="D0Cf2Ce9Ca2b4Be6A4285Aa8b34Da2d4" type="Sprite2D" parent="." unique_id=567283870]
 position = Vector2(-7328, -1292)
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("1_bradm")
+
+[node name="Area2D" type="Area2D" parent="D0Cf2Ce9Ca2b4Be6A4285Aa8b34Da2d4" unique_id=2008103267]
+collision_mask = 4
+script = ExtResource("2_y1e0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="D0Cf2Ce9Ca2b4Be6A4285Aa8b34Da2d4/Area2D" unique_id=979661339]
+position = Vector2(-109.85742, -33.802734)
+shape = SubResource("RectangleShape2D_07lh1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=331177845]
 position = Vector2(-14310, -11)
@@ -89,10 +117,26 @@ position = Vector2(-11965.999, -550)
 scale = Vector2(0.39375, 0.39375)
 texture = ExtResource("2_qewby")
 
+[node name="Area2D2" type="Area2D" parent="1000003818" unique_id=1633149400]
+collision_mask = 4
+script = ExtResource("4_a114e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1000003818/Area2D2" unique_id=1640461759]
+position = Vector2(-154.91992, -20.317505)
+shape = SubResource("RectangleShape2D_s4dsi")
+
 [node name="1000003383" type="Sprite2D" parent="." unique_id=616923225]
 position = Vector2(-555.8192, -3029.375)
 scale = Vector2(0.46724066, 0.46724063)
 texture = ExtResource("4_e40mx")
+
+[node name="Area2D" type="Area2D" parent="1000003383" unique_id=433997253]
+collision_mask = 4
+script = ExtResource("7_s4dsi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1000003383/Area2D" unique_id=986645282]
+position = Vector2(-33.560425, -18.459473)
+shape = SubResource("RectangleShape2D_6uuvf")
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1834042987]
 position = Vector2(574, 579)
@@ -106,7 +150,6 @@ position = Vector2(-14646, 210)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit" unique_id=1656132795]
 position = Vector2(-13713, 362)
 shape = SubResource("WorldBoundaryShape2D_y1e0c")
-one_way_collision = true
 
 [node name="Area2D" parent="." unique_id=2045395048 instance=ExtResource("5_fh4ka")]
 position = Vector2(-16910, 64)
@@ -124,17 +167,17 @@ label_settings = SubResource("LabelSettings_6qt4k")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=401840239]
 
-[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=392379751]
+[node name="CoinCount2" type="Label" parent="CanvasLayer" unique_id=1489709192]
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 67.0
 offset_bottom = 47.188408
 text = "Coins"
-label_settings = SubResource("LabelSettings_07lh1")
+label_settings = SubResource("LabelSettings_6uuvf")
 script = ExtResource("6_qewby")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1315723353]
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=189192205]
 texture_filter = 1
 texture_repeat = 1
 offset_left = 422.0
@@ -144,7 +187,7 @@ offset_bottom = 142.0
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
 text = "dead"
-label_settings = SubResource("LabelSettings_6uuvf")
+label_settings = SubResource("LabelSettings_atr84")
 script = ExtResource("7_bradm")
 metadata/_edit_use_anchors_ = true
 
@@ -271,14 +314,18 @@ position = Vector2(-1020, -1661)
 [node name="Coin27" parent="." unique_id=1013745656 instance=ExtResource("9_rupth")]
 position = Vector2(-763, -1662)
 
-[node name="Node2D" parent="." unique_id=394454587 instance=ExtResource("15_a114e")]
-position = Vector2(-282, -2897)
+[node name="Node2D" parent="." unique_id=679198294 instance=ExtResource("18_s4dsi")]
+position = Vector2(-377, -1625)
 
-[node name="Node2D5" parent="." unique_id=1797459495 instance=ExtResource("15_a114e")]
-position = Vector2(-382, -1634)
+[node name="Node2D5" parent="." unique_id=415346833 instance=ExtResource("18_s4dsi")]
+position = Vector2(-300, -2896)
 
 [node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("2_5mhml")]
 position = Vector2(-14310, -6)
 
 [node name="fire" parent="." unique_id=1859872781 instance=ExtResource("8_5mhml")]
 position = Vector2(-14463, -2337)
+
+[connection signal="body_entered" from="D0Cf2Ce9Ca2b4Be6A4285Aa8b34Da2d4/Area2D" to="D0Cf2Ce9Ca2b4Be6A4285Aa8b34Da2d4/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="1000003818/Area2D2" to="1000003818/Area2D2" method="_on_body_entered"]
+[connection signal="body_entered" from="1000003383/Area2D" to="1000003383/Area2D" method="_on_body_entered"]

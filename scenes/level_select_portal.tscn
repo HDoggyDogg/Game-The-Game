@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkpy3dilvuk1h"]
 
 [ext_resource type="Texture2D" uid="uid://d4kxf40rdkswy" path="res://assets/portal.png" id="1_x7l77"]
-[ext_resource type="Script" uid="uid://dy0xfdkb1qgcv" path="res://scripts/level_select_portal.gd" id="2_1ud8u"]
+[ext_resource type="Script" uid="uid://3ow02nnqtxri" path="res://scripts/level_select_portal1.gd" id="2_x7l77"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4jfq"]
 radius = 91.0
@@ -16,7 +16,7 @@ texture = ExtResource("1_x7l77")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=426280408]
 collision_mask = 4
-script = ExtResource("2_1ud8u")
+script = ExtResource("2_x7l77")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2010927238]
 position = Vector2(17, -191)

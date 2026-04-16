@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://dreyxvet7kdf3"]
+
+[ext_resource type="Script" uid="uid://c0dpqxhlscicm" path="res://scripts/quit.gd" id="1_vjb58"]
+[ext_resource type="Script" uid="uid://vmgjukkss1ja" path="res://scripts/button.gd" id="1_yqeox"]
+[ext_resource type="Script" uid="uid://cl8xswsw01o2x" path="res://scripts/creddits.gd" id="3_con2f"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4h3mk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqeox"]
+font_size = 82
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=485528145]
+
+[node name="Button2" type="Button" parent="." unique_id=282109773]
+offset_left = 530.0
+offset_top = 312.0
+offset_right = 621.0
+offset_bottom = 362.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Don't"
+icon = SubResource("ViewportTexture_4h3mk")
+script = ExtResource("1_vjb58")
+
+[node name="Button" type="Button" parent="." unique_id=75963251]
+offset_left = 533.0
+offset_top = 211.0
+offset_right = 613.0
+offset_bottom = 261.0
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Play"
+icon = SubResource("ViewportTexture_4h3mk")
+script = ExtResource("1_yqeox")
+
+[node name="Label" type="Label" parent="." unique_id=832254815]
+offset_left = 226.0
+offset_top = 41.0
+offset_right = 902.0
+offset_bottom = 154.0
+text = "Game: The Game"
+label_settings = SubResource("LabelSettings_yqeox")
+
+[node name="Button3" type="Button" parent="." unique_id=1040404221]
+offset_left = 519.0
+offset_top = 412.0
+offset_right = 634.0
+offset_bottom = 462.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+icon = SubResource("ViewportTexture_4h3mk")
+script = ExtResource("3_con2f")
+
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="Button3" to="Button3" method="_on_pressed"]

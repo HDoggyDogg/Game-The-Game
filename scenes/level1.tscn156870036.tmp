@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cr1v48q2svdgs"]
 
-[ext_resource type="Script" uid="uid://bb0vxnxu7cl30" path="res://scripts/level_1.gd" id="1_ai3nx"]
 [ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="1_gnai3"]
 [ext_resource type="Texture2D" uid="uid://6iqtm37gxobd" path="res://assets/download (1) (2).jpg" id="2_i8kv5"]
 [ext_resource type="Texture2D" uid="uid://drtsfu5sdh0t0" path="res://assets/1000004001.jpg" id="3_14jow"]
@@ -21,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="11_phfsf"]
 [ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="12_3oqy1"]
 [ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="13_mq0oc"]
+[ext_resource type="PackedScene" uid="uid://b5x6nd1o8wi5e" path="res://scenes/kill-zone.tscn" id="15_i8kv5"]
 [ext_resource type="Texture2D" uid="uid://p1sd6640hk1j" path="res://assets/grass.png" id="16_1ooyw"]
 
 [sub_resource type="FontFile" id="FontFile_kvuet"]
@@ -137,18 +137,9 @@ cache/0/35/0/scale = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_trtic"]
 font = SubResource("FontFile_kvuet")
 font_size = 27
-outline_size = 8
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i8kv5"]
 font_size = 30
-outline_size = 7
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ai3nx"]
-font_size = 23
-outline_size = 5
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvkml"]
 size = Vector2(723.0183, 474.50235)
@@ -195,22 +186,18 @@ distance = 308.0
 normal = Vector2(1, 0)
 distance = -499.0
 
-[sub_resource type="SystemFont" id="SystemFont_phfsf"]
+[sub_resource type="SystemFont" id="SystemFont_jvkml"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvpfn"]
-font = SubResource("SystemFont_phfsf")
+font = SubResource("SystemFont_jvkml")
 font_size = 29
-outline_size = 7
-outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_3oqy1"]
+[sub_resource type="SystemFont" id="SystemFont_3w4mx"]
 msdf_size = 56
 
 [sub_resource type="LabelSettings" id="LabelSettings_kvuet"]
-font = SubResource("SystemFont_3oqy1")
+font = SubResource("SystemFont_3w4mx")
 font_size = 37
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontFile" id="FontFile_i8kv5"]
 cache/0/variation_coordinates = {}
@@ -241,14 +228,8 @@ cache/0/10/0/scale = 1.0
 [sub_resource type="LabelSettings" id="LabelSettings_dxn3v"]
 font = SubResource("FontFile_i8kv5")
 font_size = 40
-outline_size = 9
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ooyw"]
-normal = Vector2(-1, 0)
 
 [node name="Node2D" type="Node2D" unique_id=1864473837]
-script = ExtResource("1_ai3nx")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=543741763]
 offset_left = -23668.0
@@ -286,13 +267,12 @@ label_settings = SubResource("LabelSettings_i8kv5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="." unique_id=1413955796]
-offset_left = -500.0
-offset_top = -1206.0
-offset_right = -75.0
-offset_bottom = -1139.0
+offset_left = -486.0
+offset_top = -1179.0
+offset_right = -61.0
+offset_bottom = -1130.0
 text = "Got all the power ups? 
 Jump all the way up for a secret!"
-label_settings = SubResource("LabelSettings_ai3nx")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2134652602]
 position = Vector2(-14310, -11)
@@ -372,7 +352,7 @@ shape = SubResource("RectangleShape2D_3oqy1")
 position = Vector2(809, -1086)
 
 [node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("5_mvsps")]
-position = Vector2(-14310, -10)
+position = Vector2(-14310, -6)
 
 [node name="Node2D111" parent="." unique_id=712999090 instance=ExtResource("6_jvkml")]
 position = Vector2(-5038, -952)
@@ -759,6 +739,9 @@ label_settings = SubResource("LabelSettings_kvuet")
 script = ExtResource("12_3oqy1")
 metadata/_edit_use_anchors_ = true
 
+[node name="KillZone" parent="." unique_id=1767619211 instance=ExtResource("15_i8kv5")]
+position = Vector2(1744, -1058)
+
 [node name="Label4" type="Label" parent="." unique_id=796035377]
 offset_left = -251.0
 offset_top = -4387.0
@@ -766,12 +749,6 @@ offset_right = 65.0
 offset_bottom = -4332.0
 text = "Nothing up here"
 label_settings = SubResource("LabelSettings_dxn3v")
-
-[node name="Pit" parent="." unique_id=1440463077 instance=ExtResource("13_mq0oc")]
-position = Vector2(1859, -1096)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=375117163]
-shape = SubResource("WorldBoundaryShape2D_1ooyw")
 
 [connection signal="body_entered" from="1000004001/Area2D" to="1000004001/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="1000003560/Area2D2" to="1000003560/Area2D2" method="_on_body_entered"]

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://d3ojki23agogt"]
 
 [ext_resource type="Script" uid="uid://dcak3r4vd81ft" path="res://scripts/camera.gd" id="1_6ep0u"]
+[ext_resource type="Script" uid="uid://i0erxnqsm071" path="res://scripts/level_2.gd" id="1_63e4f"]
 [ext_resource type="PackedScene" uid="uid://bg12pxg76tgiw" path="res://scenes/player.tscn" id="2_hrcei"]
 [ext_resource type="Texture2D" uid="uid://dwl25k8bmj3i2" path="res://assets/1000003828.jpg" id="2_ve5ok"]
 [ext_resource type="Texture2D" uid="uid://tnpa5v6i2ti0" path="res://assets/It's Dark.png" id="2_xa7n4"]
+[ext_resource type="Script" uid="uid://cy05vnka2x3us" path="res://scripts/burger.gd" id="3_o3sye"]
+[ext_resource type="Script" uid="uid://dv7d8gmnc5uij" path="res://scripts/cook.gd" id="3_s4es8"]
 [ext_resource type="Texture2D" uid="uid://5tp81vycrccu" path="res://assets/Floor.png" id="3_xa7n4"]
+[ext_resource type="Script" uid="uid://ddjwevd58jjgy" path="res://scripts/fih.gd" id="4_24ks5"]
 [ext_resource type="PackedScene" uid="uid://du3umk7g8fbbc" path="res://scenes/death_pit.tscn" id="5_76toy"]
+[ext_resource type="Texture2D" uid="uid://p1sd6640hk1j" path="res://assets/grass.png" id="5_cqal4"]
 [ext_resource type="Script" uid="uid://bhfaoululrcdr" path="res://scripts/coin_count.gd" id="6_8g4ke"]
 [ext_resource type="Script" uid="uid://cyn2lmtb4q3ce" path="res://scripts/label.gd" id="7_56gwk"]
 [ext_resource type="PackedScene" uid="uid://c6ilbjg5hqyu5" path="res://scenes/power.tscn" id="9_8g4ke"]
@@ -16,16 +21,22 @@
 [ext_resource type="Texture2D" uid="uid://d37ljx6tfv77o" path="res://assets/1000003764.jpg" id="12_cleqw"]
 [ext_resource type="Texture2D" uid="uid://db25k6mq037jl" path="res://assets/fish.gif" id="13_56gwk"]
 [ext_resource type="Texture2D" uid="uid://25qfganepijj" path="res://assets/coin.png" id="13_wvb8j"]
-[ext_resource type="PackedScene" uid="uid://dkpy3dilvuk1h" path="res://scenes/level_select_portal.tscn" id="14_g8vcy"]
+[ext_resource type="PackedScene" uid="uid://c8d0bw3wj1jr6" path="res://scenes/level_select_portal2.tscn" id="18_s4es8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63e4f"]
+size = Vector2(1192.0723, 699.13965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4es8"]
+size = Vector2(375, 287)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3sye"]
+size = Vector2(836.9746, 778.8478)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ve5ok"]
 texture = ExtResource("3_xa7n4")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56gwk"]
-load_path = "res://.godot/imported/terrain_grass_block_top.png-a28563e7bff586c7143cb05e4e4ca64c.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cleqw"]
-texture = SubResource("CompressedTexture2D_56gwk")
+texture = ExtResource("5_cqal4")
 texture_region_size = Vector2i(16, 4)
 0:1/size_in_atlas = Vector2i(4, 15)
 0:1/0 = 0
@@ -41,29 +52,34 @@ sources/1 = SubResource("TileSetAtlasSource_cleqw")
 normal = Vector2(1, 0)
 distance = -499.0
 
-[sub_resource type="SystemFont" id="SystemFont_vtaks"]
+[sub_resource type="SystemFont" id="SystemFont_jvkml"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_cqal4"]
-font = SubResource("SystemFont_vtaks")
+[sub_resource type="LabelSettings" id="LabelSettings_63e4f"]
+font = SubResource("SystemFont_jvkml")
 font_size = 29
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_dinhu"]
+[sub_resource type="SystemFont" id="SystemFont_3w4mx"]
 msdf_size = 56
 
-[sub_resource type="LabelSettings" id="LabelSettings_o3sye"]
-font = SubResource("SystemFont_dinhu")
+[sub_resource type="LabelSettings" id="LabelSettings_y6lc1"]
+font = SubResource("SystemFont_3w4mx")
 font_size = 37
+outline_size = 9
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_24ks5"]
 distance = 308.0
 
 [node name="Node2D" type="Node2D" unique_id=2070867044]
+script = ExtResource("1_63e4f")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=386465426]
-offset_left = -24011.0
-offset_top = -10049.0
-offset_right = 9223.0
-offset_bottom = 4733.0
+offset_left = -23907.0
+offset_top = -9769.0
+offset_right = 9327.0
+offset_bottom = 5013.0
 color = Color(0.12683201, 0.00012056753, 0.19794932, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=81706222]
@@ -74,10 +90,43 @@ position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 script = ExtResource("1_6ep0u")
 
+[node name="1000003764" type="Sprite2D" parent="." unique_id=1900377355]
+position = Vector2(-5977.0005, -1327)
+scale = Vector2(0.50919735, 0.5091973)
+texture = ExtResource("12_cleqw")
+
+[node name="Area2D" type="Area2D" parent="1000003764" unique_id=1549744057]
+collision_mask = 4
+script = ExtResource("3_s4es8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1000003764/Area2D" unique_id=1594961017]
+position = Vector2(-321.09277, -11.783203)
+shape = SubResource("RectangleShape2D_63e4f")
+
+[node name="Fish" type="Sprite2D" parent="." unique_id=158981151]
+position = Vector2(-12234, -1693)
+texture = ExtResource("13_56gwk")
+
+[node name="Area2D" type="Area2D" parent="Fish" unique_id=2116822738]
+collision_mask = 4
+script = ExtResource("4_24ks5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fish/Area2D" unique_id=493210930]
+position = Vector2(-5.5, 7.5)
+shape = SubResource("RectangleShape2D_s4es8")
+
 [node name="1000003828" type="Sprite2D" parent="." unique_id=455574690]
 position = Vector2(-15156, -143)
 scale = Vector2(0.344098, 0.34409803)
 texture = ExtResource("2_ve5ok")
+
+[node name="Area2D" type="Area2D" parent="1000003828" unique_id=223160437]
+collision_mask = 4
+script = ExtResource("3_o3sye")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1000003828/Area2D" unique_id=1460686915]
+position = Vector2(212.15234, 17.43689)
+shape = SubResource("RectangleShape2D_o3sye")
 
 [node name="Node2D2" parent="." unique_id=1045455658 instance=ExtResource("11_76toy")]
 position = Vector2(-15002, -8)
@@ -102,17 +151,17 @@ shape = SubResource("WorldBoundaryShape2D_g8vcy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1180268621]
 
-[node name="CoinCount" type="Label" parent="CanvasLayer" unique_id=2039446686]
+[node name="CoinCount2" type="Label" parent="CanvasLayer" unique_id=1804373235]
 offset_left = 24.0
 offset_top = 24.0
 offset_right = 67.0
 offset_bottom = 47.188408
 text = "Coins"
-label_settings = SubResource("LabelSettings_cqal4")
+label_settings = SubResource("LabelSettings_63e4f")
 script = ExtResource("6_8g4ke")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1659905065]
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1565113378]
 texture_filter = 1
 texture_repeat = 1
 offset_left = 422.0
@@ -122,7 +171,7 @@ offset_bottom = 142.0
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
 text = "dead"
-label_settings = SubResource("LabelSettings_o3sye")
+label_settings = SubResource("LabelSettings_y6lc1")
 script = ExtResource("7_56gwk")
 metadata/_edit_use_anchors_ = true
 
@@ -132,7 +181,6 @@ position = Vector2(-14630, 210)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="death_pit" unique_id=1973537541]
 position = Vector2(-13713, 362)
 shape = SubResource("WorldBoundaryShape2D_24ks5")
-one_way_collision = true
 
 [node name="Node2D" parent="." unique_id=2098044318 instance=ExtResource("9_xa7n4")]
 position = Vector2(-14083, 0)
@@ -181,10 +229,6 @@ position = Vector2(-10511, -949)
 
 [node name="Node2D19" parent="." unique_id=1615920089 instance=ExtResource("9_8g4ke")]
 position = Vector2(-10377, -927)
-
-[node name="Fish" type="Sprite2D" parent="." unique_id=158981151]
-position = Vector2(-12234, -1693)
-texture = ExtResource("13_56gwk")
 
 [node name="Node2D20" parent="." unique_id=1127788399 instance=ExtResource("11_8g4ke")]
 position = Vector2(-10236, -2)
@@ -235,11 +279,6 @@ position = Vector2(-6513, -227)
 
 [node name="Node2D35" parent="." unique_id=1981200888 instance=ExtResource("11_8g4ke")]
 position = Vector2(-7102, -7)
-
-[node name="1000003764" type="Sprite2D" parent="." unique_id=1900377355]
-position = Vector2(-5977.0005, -1327)
-scale = Vector2(0.50919735, 0.5091973)
-texture = ExtResource("12_cleqw")
 
 [node name="Node2D36" parent="." unique_id=1697152562 instance=ExtResource("11_76toy")]
 position = Vector2(-6334, -1170)
@@ -315,11 +354,11 @@ position = Vector2(-3403, -76)
 [node name="Node2D58" parent="." unique_id=363307491 instance=ExtResource("11_76toy")]
 position = Vector2(-3286, -71)
 
-[node name="Node2D59" parent="." unique_id=394454587 instance=ExtResource("14_g8vcy")]
-position = Vector2(-3010, -54)
+[node name="Node2D60" parent="." unique_id=735673040 instance=ExtResource("18_s4es8")]
+position = Vector2(-2985, -40)
 
 [node name="CharacterBody2D" parent="." unique_id=267483056 instance=ExtResource("2_hrcei")]
-position = Vector2(-14291, -6)
+position = Vector2(-14217, -1)
 
 [node name="Dark" type="Sprite2D" parent="CharacterBody2D" unique_id=1274529601]
 visible = false
@@ -328,6 +367,13 @@ scale = Vector2(0.9470024, 0.94700253)
 texture = ExtResource("2_xa7n4")
 offset = Vector2(-8, -25)
 script = ExtResource("9_bo4dx")
+
+[node name="ColorRect5" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=537112418]
+offset_left = -1968.3154
+offset_top = 328.4046
+offset_right = 2305.169
+offset_bottom = 2604.0833
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="CharacterBody2D/Dark" unique_id=2078812471]
 offset_left = -522.7017
@@ -356,3 +402,7 @@ offset_top = -7135.1445
 offset_right = 549.731
 offset_bottom = -301.70117
 color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="1000003764/Area2D" to="1000003764/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Fish/Area2D" to="Fish/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="1000003828/Area2D" to="1000003828/Area2D" method="_on_body_entered"]

@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://82khovwxjdo6" path="res://assets/spike.png" id="1_d2mqm"]
 [ext_resource type="PackedScene" uid="uid://b5x6nd1o8wi5e" path="res://scenes/kill-zone.tscn" id="2_cx2lw"]
 [ext_resource type="AudioStream" uid="uid://db6jqrtjk0iia" path="res://assets/Death.wav" id="3_60m7a"]
+[ext_resource type="Script" uid="uid://bpiso72j2vxjh" path="res://scripts/spike.gd" id="3_b8th5"]
+[ext_resource type="AudioStream" uid="uid://bee3o02kl87n7" path="res://assets/hurt.wav" id="4_516m6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2mqm"]
 radius = 93.95382
@@ -16,12 +18,17 @@ scale = Vector2(0.5531562, 0.55315614)
 texture = ExtResource("1_d2mqm")
 
 [node name="KillZone" parent="Sprite2D" unique_id=1767619211 instance=ExtResource("2_cx2lw")]
+script = ExtResource("3_b8th5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/KillZone" unique_id=1254654018]
 position = Vector2(-5.683179, 0.45194626)
 rotation = 0.5235988
 shape = SubResource("CapsuleShape2D_d2mqm")
 debug_color = Color(0.97390443, 0, 0.4340493, 0.41960785)
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Sprite2D/KillZone" unique_id=653053684]
+scale = Vector2(0.99999994, 1)
+stream = ExtResource("4_516m6")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D/KillZone" unique_id=1042790081]
 stream = ExtResource("3_60m7a")
