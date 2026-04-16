@@ -1,6 +1,6 @@
 extends Area2D
 @onready var timer: Timer = $Timer
-@onready var hurt: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var hurt: AudioStreamPlayer2D = $"../Area2D2/AudioStreamPlayer2D"
 @onready var death: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var powered: Sprite2D = $Powered

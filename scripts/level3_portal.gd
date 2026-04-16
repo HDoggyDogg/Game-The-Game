@@ -4,12 +4,13 @@ extends Area2D
 var can_enter = false
 
 func _process(delta):
-	if can_enter and Input.is_action_just_pressed("E"):
+	if can_enter and Input.is_action_just_pressed("E") and not Globals.teleporting:
 		print("teleporting")
 		timer.start()
+		Globals.teleporting = true
 
 func _on_body_entered(body: Node2D) -> void:
-	if Globals.levels_beat > 1:
+	if Globals.level2:
 		can_enter = true
 		Globals.can_enter = true
 		print('can enter')
@@ -24,4 +25,5 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Globals.reset()
-	get_tree().change_scene_to_file("res://scenes/level3.tscn")
+	Globals.teleporting = false
+	get_tree().change_scene_to_file("res://scenes/level1.tscn")
